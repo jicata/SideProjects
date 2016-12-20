@@ -1,0 +1,5 @@
+C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\Models\bin\Debug\Models.dll
+C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\Models\bin\Debug\Models.pdb
+C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\Models\obj\Debug\Models.dll
+C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\Models\obj\Debug\Models.pdb
