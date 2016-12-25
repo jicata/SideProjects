@@ -1,8 +1,0 @@
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\bin\Debug\TestingTemplateOne.exe.config
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\bin\Debug\TestingTemplateOne.exe
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\bin\Debug\TestingTemplateOne.pdb
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\obj\Debug\TestingTemplateOne.csprojResolveAssemblyReference.cache
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\obj\Debug\TestingTemplateOne.exe
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\obj\Debug\TestingTemplateOne.pdb
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\bin\Debug\Models.dll
-C:\Users\Maika\Documents\Programming\SideProjects\WorkingWIthTemplateCode\TestingTemplateOne\bin\Debug\Models.pdb

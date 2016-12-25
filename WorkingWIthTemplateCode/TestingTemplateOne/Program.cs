@@ -110,6 +110,7 @@ namespace TestingTemplateOne
             {
                 int posisitionOfLastSeparator = file.LastIndexOf(@"\") + 1;
                 Console.WriteLine(file.Substring(posisitionOfLastSeparator));
+                Console.WriteLine(Path.GetTempFileName());
             }
 
             var compiler = new CSharpCodeProvider();
