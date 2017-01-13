@@ -49,13 +49,46 @@
             }
             IReadOnlyCollection<Func<List<Type>, bool>> tests = new ReadOnlyCollection<Func<List<Type>, bool>>(new List<Func<List<Type>, bool>>
              {
-                    (x)=>x.Any(t=>t.Name=="CompletelyIrrelevantClass")
-             });
-        
+                    (x)=>types.Any(t=>t.Name=="CompletelyIrrelevantClass"),
+                    (y)=>types.FirstOrDefault(t=>t.Name=="CompletelyIrrelevantClass").IsPublic,
+                    (z)=>types.FirstOrDefault(t=>t.Name=="CompletelyIrrelevantClass").GetMethods().Any(m => m.Name == "IrrelevantMethod"),
+                    (a)=>types.FirstOrDefault(t=>t.Name=="CompletelyIrrelevantClass").IsSubclassOf(a.FirstOrDefault(t=>t.Name=="SomewhatIrrelevantClass")),
+                    (b)=>types.FirstOrDefault(t=>t.Name=="SomewhatIrrelevantClass").GetMembers().Any(m=>m.Name=="Id")
+            });
+
+            //(y) =>
+            //{
+            //    var thing = y.FirstOrDefault(t => t.Name == "CompletelyIrrelevantClass");
+            //    if (thing != null)
+            //    {
+            //        return thing.GetMethods().Any(m => m.Name == "IrrelevantMethod");
+
+            //    }
+            //    return false;
+            //},
+            //foreach (var test in tests)
+            //{
+            //    bool result = test(types);
+            //    Console.WriteLine(result);
+            //}
             foreach (var test in tests)
             {
-                bool result = test(types);
+                var result = false;
+                string error = null;
+                try
+                {
+                    result = test(types);
+                    if (!result)
+                    {
+                        Console.WriteLine("Test Failed");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 Console.WriteLine(result);
+                
             }
 
 
