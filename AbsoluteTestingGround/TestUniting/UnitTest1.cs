@@ -5,6 +5,7 @@ namespace TestUniting
 {
     using System.IO;
     using TemplateProject;
+    using TemplateProject.DrugFolder;
 
     public class ConsoleOutput : IDisposable
     {
@@ -60,7 +61,8 @@ namespace TestUniting
         [TestMethod]
         public void TestMethod1()
         {
-          
+            MyClas classy = new MyClas();
+            classy.ToString();
         }
         [TestMethod]
         public void TestMethod2()
@@ -69,8 +71,12 @@ namespace TestUniting
             classy.Id = 5;
 
             Assert.AreEqual(5,classy.Id);
-           
-
+          
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Assert.AreEqual("im foreign", ForeignClass.message);
         }
     }
 }
