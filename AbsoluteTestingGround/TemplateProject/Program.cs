@@ -3,12 +3,32 @@
     using System;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
+    using System.Xml;
 
     public class LocalCSharpTestRunner
     {
 
         public static void Main()
         {
+            string inputPath = @"D:\CSharpUnitTestsRunnerTestingFolder\TestUniting.csproj";
+            XmlDocument xdDoc = new XmlDocument();
+            xdDoc.Load(inputPath);
+
+            XmlNamespaceManager xnManager =
+             new XmlNamespaceManager(xdDoc.NameTable);
+            xnManager.AddNamespace("tu",
+             "http://schemas.microsoft.com/developer/msbuild/2003");
+
+            XmlNode xnRoot = xdDoc.DocumentElement;
+            XmlNode node = xnRoot.SelectSingleNode("//tu:ProjectReference", xnManager);
+            if (node != null)
+            {
+                node.ParentNode.RemoveChild(node);
+            }
+            xdDoc.Save(inputPath);
+
+            return;
 
             string unitTestProjectPath =
                 @"D:\TestUniting.dll";

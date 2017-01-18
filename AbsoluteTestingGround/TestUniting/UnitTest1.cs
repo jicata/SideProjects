@@ -4,8 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestUniting
 {
     using System.IO;
-    using TemplateProject;
-    using TemplateProject.DrugFolder;
+    //using TemplateProject;
+    //using TemplateProject.DrugFolder;
 
     public class ConsoleOutput : IDisposable
     {
@@ -61,22 +61,22 @@ namespace TestUniting
         [TestMethod]
         public void TestMethod1()
         {
-            MyClas classy = new MyClas();
-            classy.ToString();
+            //MyClas classy = new MyClas();
+            //classy.ToString();
         }
         [TestMethod]
         public void TestMethod2()
         {
-            ReferencedClass classy = new ReferencedClass();
-            classy.Id = 5;
+            //ReferencedClass classy = new ReferencedClass();
+            //classy.Id = 5;
 
-            Assert.AreEqual(5,classy.Id);
+            //Assert.AreEqual(5,classy.Id);
           
         }
         [TestMethod]
         public void TestMethod3()
         {
-            Assert.AreEqual("im foreign", ForeignClass.message);
+            //Assert.AreEqual("im foreign", ForeignClass.message);
         }
     }
 }
