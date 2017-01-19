@@ -11,7 +11,7 @@
 
         public static void Main()
         {
-            string inputPath = @"D:\CSharpUnitTestsRunnerTestingFolder\TestUniting.csproj";
+            string inputPath = @"D:\CSharpUnitTestsRunnerTestingFolder\InitialProjectDirectory\TestUniting.csproj";
             XmlDocument xdDoc = new XmlDocument();
             xdDoc.Load(inputPath);
 
@@ -21,17 +21,17 @@
              "http://schemas.microsoft.com/developer/msbuild/2003");
 
             XmlNode xnRoot = xdDoc.DocumentElement;
-            XmlNode node = xnRoot.SelectSingleNode("//tu:ProjectReference", xnManager);
-            if (node != null)
-            {
-                node.ParentNode.RemoveChild(node);
-            }
+            XmlNode node = xnRoot.SelectSingleNode("//tu:ItemGroup", xnManager);
+            XmlElement element = xdDoc.CreateElement("Reference", "http://schemas.microsoft.com/developer/msbuild/2003");
+            element.SetAttribute("Include", "References.dll");
+            node.AppendChild(element);
+           
             xdDoc.Save(inputPath);
-
             return;
 
+
             string unitTestProjectPath =
-                @"D:\TestUniting.dll";
+                @"D:\TestUniting.dll.exe";
             string vsTestRunnerPath =
                 @"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe";
             ProcessStartInfo pinfo1 = new ProcessStartInfo(vsTestRunnerPath, unitTestProjectPath);

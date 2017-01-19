@@ -63,6 +63,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TemplateProject\TemplateProject.csproj">
+      <Project>{6D58E9AA-DC5E-4AC6-8251-B008DE630AA0}</Project>
+      <Name>TemplateProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,82 +1,33 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestUniting
 {
-    using System.IO;
-    //using TemplateProject;
-    //using TemplateProject.DrugFolder;
-
-    public class ConsoleOutput : IDisposable
-    {
-        private StringWriter stringWriter;
-        private TextWriter originalOutput;
-
-        public ConsoleOutput()
-        {
-            stringWriter = new StringWriter();
-            originalOutput = Console.Out;
-            Console.SetOut(stringWriter);
-        }
-
-        public string GetOuput()
-        {
-            return stringWriter.ToString();
-        }
-
-        public void Dispose()
-        {
-            Console.SetOut(originalOutput);
-            stringWriter.Dispose();
-        }
-    }
+    using TemplateProject;
+    using TemplateProject.DrugFolder;
 
     [TestClass]
     public class UnitTest1
     {
-        private TestContext m_testContext;
-        public  ConsoleOutput cOut;
 
-        public TestContext TestContext
-
-        {
-
-            get { return m_testContext; }
-
-            set { m_testContext = value; }
-
-        }
-
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            this.cOut = new ConsoleOutput();
-            if (this.m_testContext.CurrentTestOutcome == UnitTestOutcome.Passed)
-            {
-               Console.WriteLine("DINGDONG");
-               //File.WriteAllText("D:\\log.txt",Environment.CurrentDirectory);
-            }
-        }
         [TestMethod]
         public void TestMethod1()
         {
-            //MyClas classy = new MyClas();
-            //classy.ToString();
+            ReferencedClass reffy = new ReferencedClass();
+            reffy.Id = 5;
+            Assert.AreEqual(5,reffy.Id);
         }
         [TestMethod]
         public void TestMethod2()
         {
-            //ReferencedClass classy = new ReferencedClass();
-            //classy.Id = 5;
+            string message = ForeignClass.message;
+            Assert.AreEqual("im foreign", message);
 
-            //Assert.AreEqual(5,classy.Id);
-          
+
         }
         [TestMethod]
         public void TestMethod3()
         {
-            //Assert.AreEqual("im foreign", ForeignClass.message);
+            MyClas clas = new MyClas();
         }
     }
 }
