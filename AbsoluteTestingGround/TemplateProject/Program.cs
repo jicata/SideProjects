@@ -5,31 +5,17 @@
     using System.IO;
     using System.Linq;
     using System.Xml;
-
+    using Microsoft.Build.Evaluation;
+    using Microsoft.Build.Execution;
     public class LocalCSharpTestRunner
     {
 
         public static void Main()
         {
-            string inputPath = @"D:\CSharpUnitTestsRunnerTestingFolder\InitialProjectDirectory\TestUniting.csproj";
-            XmlDocument xdDoc = new XmlDocument();
-            xdDoc.Load(inputPath);
 
-            XmlNamespaceManager xnManager =
-             new XmlNamespaceManager(xdDoc.NameTable);
-            xnManager.AddNamespace("tu",
-             "http://schemas.microsoft.com/developer/msbuild/2003");
-
-            XmlNode xnRoot = xdDoc.DocumentElement;
-            XmlNode node = xnRoot.SelectSingleNode("//tu:ItemGroup", xnManager);
-            XmlElement element = xdDoc.CreateElement("Reference", "http://schemas.microsoft.com/developer/msbuild/2003");
-            element.SetAttribute("Include", "References.dll");
-            node.AppendChild(element);
-           
-            xdDoc.Save(inputPath);
+            int one = 1;
+            Console.WriteLine(one.ToString("00"));
             return;
-
-
             string unitTestProjectPath =
                 @"D:\TestUniting.dll.exe";
             string vsTestRunnerPath =
