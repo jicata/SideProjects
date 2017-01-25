@@ -1,37 +1,89 @@
 ﻿namespace AbsoluteTestingGround
 {
     using System;
-    using System.CodeDom.Compiler;
     using System.IO;
-    using Ionic.Zip;
-    using Microsoft.CSharp;
+    using System.Reflection;
+    using System.Xml;
+    using NUnit.Engine;
+    using NUnit.Engine.Agents;
+    using NUnit.Framework;
+    using NUnit.Framework.Internal;
+    using TestFilter = NUnit.Engine.TestFilter;
 
-    public  class Program
+    public class Program
     {
+        public static string Template = @" 
+private TestContext testContextInstance;
+
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            if (TestContext.CurrentTestOutcome == UnitTestOutcome.Passed)
+                testsPassed++;
+            else
+                testsFailed++;            
+        }
+
+        //[ClassCleanup]
+        //public static void ClassCleanUp()
+        //{
+        //    File.AppendAllText(@""D:\logged.txt"", ""Tests passed:"" + testsPassed + ""\n"");
+        //    File.AppendAllText(@""D:\logged.txt"", ""Tests failed:"" + testsFailed + ""\n"");
+        //}
+
+        private static int testsPassed;
+        private static int testsFailed;";
+
         public static void Main()
         {
-            string outputAssemblyPath = @"D:\Install\Reference.dll";
-            string code = File.ReadAllText(@"D:\Install\References.cs");
-            var compiler = new CSharpCodeProvider();
-            var compilerParameters = new CompilerParameters();
-            compilerParameters.ReferencedAssemblies.Add("mscorlib.dll");
-            compilerParameters.ReferencedAssemblies.Add("System.dll");
-            compilerParameters.ReferencedAssemblies.Add("System.Core.dll");
-            compilerParameters.GenerateInMemory = false;
-            compilerParameters.GenerateExecutable = false;
-            compilerParameters.OutputAssembly = "Reference.dll";
-            var compilerResult = compiler.CompileAssemblyFromSource(compilerParameters, code);
-            foreach (CompilerError error in compilerResult.Errors)
+            // set up the options
+            string path = Assembly.GetExecutingAssembly().Location;
+            TestPackage package = new TestPackage(path);
+            package.AddSetting("WorkDirectory", Environment.CurrentDirectory);
+
+            // prepare the engine
+            ITestEngine engine = TestEngineActivator.CreateInstance();
+            var _filterService = engine.Services.GetService<ITestFilterService>();
+            ITestFilterBuilder builder = _filterService.GetTestFilterBuilder();
+            TestFilter emptyFilter = builder.GetFilter();
+            XmlDocument doc = new XmlDocument();
+            using (ITestRunner runner = engine.GetRunner(package))
             {
-                Console.WriteLine(error.ErrorText);
+                // execute the tests            
+                XmlNode result = runner.Run(null, emptyFilter);
+                Console.WriteLine(result.InnerText);
+               
             }
-            File.Move(compilerResult.PathToAssembly, outputAssemblyPath);
-
-
-           
+            Console.ReadLine();
         }
-        
+        [TestFixture]
+        public class MyTests
+        {
+            [Test]
+            public void Testche1()
+            {
+                Assert.AreEqual(1, 1, "failed");
+            }
+            [Test]
+            public void Testche2()
+            {
+                Assert.AreEqual(1,2,"failed");
+            }
+        }
     }
+
 
 }
 

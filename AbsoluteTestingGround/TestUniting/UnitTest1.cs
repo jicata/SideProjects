@@ -1,11 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
+using TestInitialize = NUnit.Framework.SetUpAttribute;
+using TestContext = System.Object;
+using TestProperty = NUnit.Framework.PropertyAttribute;
+using TestClass = NUnit.Framework.TestFixtureAttribute;
+using TestMethod = NUnit.Framework.TestAttribute;
+using TestCleanup = NUnit.Framework.TearDownAttribute;
 namespace TestUniting
 {
     using TemplateProject;
     using TemplateProject.DrugFolder;
 
+
     [TestClass]
+    //[DeploymentItem(null,null)]
     public class UnitTest1
     {
 
@@ -27,7 +34,9 @@ namespace TestUniting
         [TestMethod]
         public void TestMethod3()
         {
-            MyClas clas = new MyClas();
-        }
+            string[] arr = new string[5];
+            Assert.AreEqual(1,2,"FUCKK");
+        }  
+
     }
 }
