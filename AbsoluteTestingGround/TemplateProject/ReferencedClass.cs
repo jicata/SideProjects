@@ -6,11 +6,11 @@
     public class ReferencedClass
     {
         private int id;
-        public int Id { get; set; }
-        //{
-        //    get { return 101; }
-        //    set { this.id = value; }
-        //}
+        public int Id 
+        {
+            get { return 101; }
+            set { this.id = value; }
+        }
         public IReadOnlyCollection<string> Strings { get; set; }
         public Func<string, bool> myFunc { get; set; }
 
