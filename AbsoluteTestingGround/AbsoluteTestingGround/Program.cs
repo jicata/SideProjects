@@ -14,6 +14,11 @@
 
         public static void Main()
         {
+            string dir = Directory.GetCurrentDirectory();
+            string name = "AbsoluteTestingGround.exe";
+            string fullPath = Directory.GetFiles(dir, name, SearchOption.AllDirectories)[0];
+            Console.WriteLine(fullPath);
+            return;
             string nUnitConsole =
                 @"C:\OJS\Open Judge System\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe";
             string arguments = string.Empty;
