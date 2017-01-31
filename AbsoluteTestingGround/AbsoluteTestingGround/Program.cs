@@ -7,6 +7,7 @@
     using System.Linq;
     using Microsoft.Build.Evaluation;
     using System.Collections;
+    using System.Reflection;
     using System.Text.RegularExpressions;
 
     public class Program
@@ -14,10 +15,12 @@
 
         public static void Main()
         {
-            string dir = Directory.GetCurrentDirectory();
-            string name = "AbsoluteTestingGround.exe";
-            string fullPath = Directory.GetFiles(dir, name, SearchOption.AllDirectories)[0];
-            Console.WriteLine(fullPath);
+
+
+            //File.WriteAllText(@"D:\PathName.txt",AssemblyName.GetAssemblyName(@"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\nunit.framework\v4.0_3.6.0.0__2638cd05610744eb\nunit.framework.dll").ToString());
+            //return;
+            var proj = new Project(@"D:\CSharpUnitTestsRunnerTestingFolder\LetsTestSomeMore\LetsTestSomeMore.csproj");
+            proj.Build();
             return;
             string nUnitConsole =
                 @"C:\OJS\Open Judge System\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe";
