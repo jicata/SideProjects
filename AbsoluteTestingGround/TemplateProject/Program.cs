@@ -9,8 +9,7 @@
     {
         public static void Main()
         {
-            SampleContext context = new SampleContext();
-            context.ReferencedClasses.Count();
+            
         }
     }
 }

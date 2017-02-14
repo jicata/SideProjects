@@ -16,7 +16,7 @@ namespace LetsTestSomeMore
             string message = ForeignClass.message;
             Assert.AreEqual("I AM foreign", message, "got the wrong message, pal");
         }
-
+    
         [TestMethod]
         public void VenciVenc()
         {
