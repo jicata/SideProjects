@@ -15,28 +15,28 @@
 
         public static void Main()
         {
-            //string path = @"D:\PathName.txt";
 
-           
+            string x = "kurche";
+            Func<string> func = () =>
+            {
+                string y = x;
+                return y;
+            };
+            x = null;
+            string resultttt =func.Invoke();
+            Console.WriteLine(resultttt);
 
-            //PrintPathAndAssemblyName(@"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Moq\v4.0_4.2.1510.2205__69f491c39445e920\Moq.dll");
-
-            //return;
-            ////var project = new Project("D:\\CSharpUnitTestsRunnerTestingFolder\\LetsTestSomeMore.csproj");
-            ////var ye = project.Build();
-            ////Console.WriteLine(ye);
-            ////return;
-            PrintPathAndAssemblyName();
+            return;
 
             string nUnitConsole =
-                @"C:\Users\Maika\Documents\Programming\SideProjects\AbsoluteTestingGround\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe";
+                @"C:\Users\Maika\Documents\Programming\SideProjects\AbsoluteTestingGround\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe";
             string arguments = string.Empty;
 
-            string file = @"C:\Users\Maika\Documents\Programming\SideProjects\AbsoluteTestingGround\LetsTestSomeMore\bin\Debug\LetsTestSomeMore.dll";
+            string file = @"D:\CSharpUnitTestsRunnerTestingFolder\bin\Debug\TestThisAc.dll";
             arguments += file + " ";
-            //arguments += "-inprocess ";
+            arguments += "-inprocess ";
             arguments += "-noresult ";
-            arguments += "/noshadow";
+    
 
 
             ProcessStartInfo pinfo1 = new ProcessStartInfo(nUnitConsole, arguments);
@@ -84,7 +84,7 @@
             string path = @"D:\PathName123.txt";
             File.AppendAllText(path, $"Path: {assemblyPath}; {Environment.NewLine} AssemblyName:{AssemblyName.GetAssemblyName(assemblyPath)} {Environment.NewLine}{Environment.NewLine}");
         }
-
+        
     }
 }
 
