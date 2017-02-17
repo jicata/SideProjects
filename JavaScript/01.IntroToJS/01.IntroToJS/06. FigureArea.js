@@ -4,21 +4,27 @@ function CalcAreaOfFigure(dimensions) {
     var W = Number(dimensions[2]);
     var H = Number(dimensions[3]);
     var areaOfInner = 0;
-    if(H > h){
+    var totalArea=0;
+    if(H> h && W>w)
+    {
+         totalArea = W*H;
+    }
+    else if(H > h){
         areaOfInner = h*W;
         var areaOfLowerCases = w * h;
         var areaOfUpperCases = W*H;
-        var totalArea = (areaOfLowerCases + areaOfUpperCases) - areaOfInner;
+        totalArea = (areaOfLowerCases + areaOfUpperCases) - areaOfInner;
     }
-    else if(H> h && W>w)
-    {
-        var totalArea = W*H;
-    }
+
     else if(h> H){
         areaOfInner = w * H;
         var areaOfLowerCases = w * h;
         var areaOfUpperCases = W*H;
-        var totalArea = (areaOfLowerCases + areaOfUpperCases) - areaOfInner;
+        totalArea = (areaOfLowerCases + areaOfUpperCases) - areaOfInner;
+    }
+    else if(h==H && w==W)
+    {
+        totalArea = w *h;
     }
 
 
