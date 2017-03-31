@@ -47,24 +47,24 @@ namespace OjsFileSwap
 
         private static void SwapWithRemoteFiles()
         {
-            File.Copy(GlobalPaths.RemoteDataAppConfigPath, GlobalPaths.RepoDataAppConfigPath, true);
-            Console.WriteLine("Successfully copied remote (Data)App.config to repository - 25%");
-            File.Copy(GlobalPaths.RemoteWorkerAppConfigPath, GlobalPaths.RepoWorkerAppConfigPath,true);
-            Console.WriteLine("Successfully copied remote (Worker)App.config to repository - 50%");
-            File.Copy(GlobalPaths.RemoteWebConfigPath, GlobalPaths.RepoWebConfigPath, true);
-            Console.WriteLine("Successfully copied remote Web.config to repository - 75%");
+            //File.Copy(GlobalPaths.RemoteDataAppConfigPath, GlobalPaths.RepoDataAppConfigPath, true);
+            //Console.WriteLine("Successfully copied remote (Data)App.config to repository - 25%");
+            //File.Copy(GlobalPaths.RemoteWorkerAppConfigPath, GlobalPaths.RepoWorkerAppConfigPath,true);
+            //Console.WriteLine("Successfully copied remote (Worker)App.config to repository - 50%");
+            //File.Copy(GlobalPaths.RemoteWebConfigPath, GlobalPaths.RepoWebConfigPath, true);
+            //Console.WriteLine("Successfully copied remote Web.config to repository - 75%");
             File.Copy(GlobalPaths.RemoteAccountControllerPath, GlobalPaths.RepoAccountControllerPath, true);
             Console.WriteLine("Successfully copied remote AccountController.cs to repository - 100%");
         }
 
         private static void SwapWithLocalFiles()
         {
-            File.Copy(GlobalPaths.LocalDataAppConfigPath, GlobalPaths.RepoDataAppConfigPath, true);
-            Console.WriteLine("Successfully copied local (Data)App.config to repository - 25%");
-            File.Copy(GlobalPaths.LocalWorkerAppConfigPath, GlobalPaths.RepoWorkerAppConfigPath, true);
-            Console.WriteLine("Successfully copied local (Worker)App.config to repository - 50%");
-            File.Copy(GlobalPaths.LocalWebConfigPath, GlobalPaths.RepoWebConfigPath,true);
-            Console.WriteLine("Successfully copied local Web.config to repository - 75%");
+            //File.Copy(GlobalPaths.LocalDataAppConfigPath, GlobalPaths.RepoDataAppConfigPath, true);
+            //Console.WriteLine("Successfully copied local (Data)App.config to repository - 25%");
+            //File.Copy(GlobalPaths.LocalWorkerAppConfigPath, GlobalPaths.RepoWorkerAppConfigPath, true);
+            //Console.WriteLine("Successfully copied local (Worker)App.config to repository - 50%");
+            //File.Copy(GlobalPaths.LocalWebConfigPath, GlobalPaths.RepoWebConfigPath,true);
+            //Console.WriteLine("Successfully copied local Web.config to repository - 75%");
             File.Copy(GlobalPaths.LocalAccountControllerPath, GlobalPaths.RepoAccountControllerPath, true);
             Console.WriteLine("Successfully copied local AccountCntroller.cs to repository - 100%");
         }

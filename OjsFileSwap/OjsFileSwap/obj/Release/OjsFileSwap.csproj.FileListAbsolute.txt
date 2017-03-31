@@ -9,3 +9,9 @@ C:\Users\Maika\Documents\Programming\Homework\C# Fundamentals\OjsFileSwap\OjsFil
 C:\Users\Maika\Documents\Programming\Homework\C# Fundamentals\OjsFileSwap\OjsFileSwap\bin\Release\OjsFileSwap.exe
 C:\Users\Maika\Documents\Programming\Homework\C# Fundamentals\OjsFileSwap\OjsFileSwap\bin\Release\OjsFileSwap.pdb
 C:\Users\Maika\Documents\Programming\Homework\C# Fundamentals\OjsFileSwap\OjsFileSwap\obj\Release\OjsFileSwap.csprojResolveAssemblyReference.cache
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\bin\Release\OjsFileSwap.exe.config
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\bin\Release\OjsFileSwap.exe
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\bin\Release\OjsFileSwap.pdb
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\obj\Release\OjsFileSwap.csprojResolveAssemblyReference.cache
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\obj\Release\OjsFileSwap.exe
+C:\SideAndTestProjects\OjsFileSwap\OjsFileSwap\obj\Release\OjsFileSwap.pdb

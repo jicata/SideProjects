@@ -12,7 +12,7 @@
         public const string RepoWebConfigPath = @"C:\OJS\Open Judge System\Web\OJS.Web\Web.config";
 
         public const string RepoAccountControllerPath =
-            @"C:\OJS\Open Judge System\Web\OJS.Web\Controllers\AccountController.cs";
+            @"C:\OpenJudgeSystem\Open Judge System\Web\OJS.Web\Controllers\AccountController.cs";
 
 
         // Local files paths
@@ -22,7 +22,7 @@
 
         public const string LocalWebConfigPath = @"D:\LocalOjsFiles\Web.config";
 
-        public const string LocalAccountControllerPath = @"D:\LocalOjsFiles\AccountController.cs";
+        public const string LocalAccountControllerPath = @"D:\LocalOJSFiles\AccountController.cs";
 
 
         // Remote files paths
@@ -32,6 +32,6 @@
 
         public const string RemoteWebConfigPath = @"D:\RemoteOjsFiles\Web.config";
 
-        public const string RemoteAccountControllerPath = @"D:\RemoteOjsFiles\AccountController.cs";
+        public const string RemoteAccountControllerPath = @"D:\RemoteOJSFiles\AccountController.cs";
     }
 }
