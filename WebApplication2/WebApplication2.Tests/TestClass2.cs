@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using NUnit.Framework;
-using WebApplication2.Controllers;
+using ShishaKingdom.Web.Controllers;
+
 
 namespace WebApplication2.Tests
 {

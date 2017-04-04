@@ -98,6 +98,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ASP-Projects\ShishaKingdom\ShishaKingdom.Data\ShishaKingdom.Data.csproj">
+      <Project>{5E659F98-241D-43B3-A16A-7186F97C52C0}</Project>
+      <Name>ShishaKingdom.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ASP-Projects\ShishaKingdom\ShishaKingdom.Web\ShishaKingdom.Web.csproj">
+      <Project>{7cb0c81b-f604-4652-9777-67493660cef9}</Project>
+      <Name>ShishaKingdom.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApplication2\WebApplication2.csproj">
       <Project>{2CFCA25C-63AF-4F70-BA06-9F51AE2CE193}</Project>
       <Name>WebApplication2</Name>
