@@ -29,5 +29,7 @@ namespace WebApplication2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual IDbSet<Cat> Cats { get; set; }
     }
 }
