@@ -132,5 +132,33 @@ namespace Reflections
             Assert.AreEqual("Jonathan", forms["FirstName"]);
             Assert.AreEqual("Danylko", forms["LastName"]);
         }
+
+        [TestCase]
+        public void MoqQueryStringTest()
+        {
+            // Arrange            
+            moqRequest.Setup(r => r.QueryString).Returns(formValues);
+            // Act
+            var queryString = moqContext.Object.Request.QueryString;
+            // Assert
+            Assert.IsNotNull(queryString);
+            Assert.AreEqual("Jonathan", queryString["FirstName"]);
+            Assert.AreEqual("Danylko", queryString["LastName"]);
+        }
+
+        [TestCase]
+        public void MoqControllerContextTest()
+        {
+            // Arrange
+            var controller = new CatsController();
+            controller.ControllerContext = new ControllerContext(moqContext.Object, new RouteData(), controller);
+            //var parameters = new CatsController();
+            // Act
+            var result = controller.Index() as ViewResult;
+            // Use ViewResult here for your results. This is a specific ActionResult I built.
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
