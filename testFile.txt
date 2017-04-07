@@ -1,0 +1,34 @@
+~~!!!==#==!!!~~
+##peshi.h## 
+class Pesho{
+
+public:
+    int wow();
+};
+
+
+~~!!!==#==!!!~~
+##pesho.cpp##
+#include "../pesho.h"
+
+int Pesho::wow(){
+    return 5;
+}
+
+~~!!!==#==!!!~~
+##gosho.h##
+#pragma once
+class Gosho {
+
+public:
+	bool bob(bool nadenica);
+};
+~~!!!==#==!!!~~
+##gosho.cpp##
+#include "gosho.h"
+
+
+bool Gosho::bob(bool nadenica) {
+	return nadenica;
+}
+~~!!!==#==!!!~~

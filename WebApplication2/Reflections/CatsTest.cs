@@ -37,33 +37,7 @@ namespace Reflections
         }
         public Type ContextType { get; set; }
 
-        private void FindTheTypeOfDb()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            var referenced = assembly.GetReferencedAssemblies();
-
-            foreach (var assemblyName in referenced)
-            {
-                if (!Assembly.Load(assemblyName).GlobalAssemblyCache)
-                {
-                    assembly = Assembly.Load(assemblyName);
-                }
-            }
-            var types = assembly.GetTypes();
-            Type dbType = null;
-            foreach (Type type in types)
-            {
-
-                if (type.IsSubclassOf(typeof(DbContext)))
-                {
-                    dbType = type;
-                    break;
-                }
-            }
-
-            object dbcontext = Activator.CreateInstance(dbType);
-            dynamic context = dbcontext;
-        }
+      
         [TestCase]
         public void TestCatsIndex()
         {
@@ -150,15 +124,50 @@ namespace Reflections
         public void MoqControllerContextTest()
         {
             // Arrange
-            var controller = new CatsController();
-            controller.ControllerContext = new ControllerContext(moqContext.Object, new RouteData(), controller);
+           
             //var parameters = new CatsController();
             // Act
-            var result = controller.Index() as ViewResult;
-            // Use ViewResult here for your results. This is a specific ActionResult I built.
 
-            // Assert
-            Assert.IsNotNull(result);
+            var data = new List<Cat>
+            {
+                new Cat()
+                {
+                    Id = 1,
+                    Breed = "Long Hair",
+                    Gender = Gender.Male,
+                    Name = "Sharo"
+                },
+                new Cat()
+                {
+                    Id=2,
+                    Breed = "Short Hair",
+                    Gender = Gender.Male,
+                    Name = "Belcho"
+                },
+                new Cat()
+                {
+                    Id=3,
+                    Breed = "Fluffination",
+                    Gender = Gender.Female,
+                    Name = "Roshla"
+                }
+            }.AsQueryable();
+
+            var mockSet = new Mock<DbSet<Cat>>();
+            mockSet.As<IQueryable<Cat>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Cat>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Cat>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Cat>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var mockContext = new Mock<ApplicationDbContext>();
+            mockContext.Setup(c => c.Cats).Returns(mockSet.Object);
+            mockSet.Setup(m => m.Find(It.IsAny<object[]>()))
+                .Returns<object[]>(ids => data.FirstOrDefault(d => d.Id == (int) ids[0]));
+
+            var controller = new CatsController();
+            controller.ControllerContext = new ControllerContext(moqContext.Object, new RouteData(), controller);
+            var result = (controller.Details(2)) as ViewResult;
+            Assert.AreEqual(data.ElementAt(1), result.Model);
         }
     }
 }

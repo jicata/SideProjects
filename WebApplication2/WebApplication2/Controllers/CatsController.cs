@@ -28,7 +28,9 @@ namespace WebApplication2.Models
         // GET: Cats/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var cat = this.context.Cats.Find(id);
+            var cats = this.context.Cats.ToList();
+            return View(cat);
         }
 
         // GET: Cats/Create

@@ -202,6 +202,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cat.cs" />
     <Compile Include="Controllers\CatsController.cs" />
+    <Compile Include="Models\CatViewModel.cs" />
     <Compile Include="Models\Enums\Gender.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cats\Index.cshtml" />
+    <Content Include="Views\Cats\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
