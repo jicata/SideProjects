@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Ionic.Zip;
 
 namespace TestApp
 {
@@ -24,6 +26,31 @@ namespace TestApp
                 Console.WriteLine("-----------------------");
             }
 
+
+            string zippath = @"C:\SideAndTestProjects\GenericCPlusPlusProject\main.zip";
+            List<string> incomingFiles = new List<string>()
+            {
+                @"C:\SideAndTestProjects\GenericCPlusPlusProject\gosho.cpp",
+                @"C:\SideAndTestProjects\GenericCPlusPlusProject\gosho.h",
+                @"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.cpp",
+                @"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.h"
+            }
+            using (ZipFile zip = ZipFile.Read(zippath))
+            {
+                foreach (var zipEntryFileName in zip.EntryFileNames)
+                {
+                    string pathInZip = string.Empty;
+                    int indexOfLastSlash = zipEntryFileName.LastIndexOf("/");
+                    if (indexOfLastSlash != -1)
+                    {
+                        string fileNameInsideOfZip = zipEntryFileName.Substring(indexOfLastSlash+1);
+                        pathInZip = zipEntryFileName;
+                    }
+
+                    zip.UpdateFile(@"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.cpp", pathInZip);
+                    zip.Save();
+                }
+            }
         }
     }
 }

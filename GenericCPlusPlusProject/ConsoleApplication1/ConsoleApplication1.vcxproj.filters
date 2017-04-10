@@ -15,21 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pesho.h">
+    <ClInclude Include="_BigInt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gosho.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BigInt.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gosho.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pesho.cpp">
+    <ClCompile Include="JA-2-Task-3-Fibonacci-Sum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

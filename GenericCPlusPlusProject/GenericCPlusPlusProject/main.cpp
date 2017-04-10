@@ -10,6 +10,6 @@ int main() {
 	Gosho g = Gosho();
     cout << p.wow() << endl;
 	bool nadenica;
-	cin >> nadenica;
+	cin >> boolalpha >> nadenica;
 	cout << boolalpha << g.bob(nadenica) << endl;
 }
