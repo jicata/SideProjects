@@ -23,6 +23,7 @@
     <ClInclude Include="_BigInt.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="JA-2-Task-3-Fibonacci-Sum.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

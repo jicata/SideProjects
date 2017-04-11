@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Ionic.Zip;
 
@@ -34,7 +35,9 @@ namespace TestApp
                 @"C:\SideAndTestProjects\GenericCPlusPlusProject\gosho.h",
                 @"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.cpp",
                 @"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.h"
-            }
+            };
+
+            Dictionary<string, string> destinationPathsInZip = new Dictionary<string, string>();
             using (ZipFile zip = ZipFile.Read(zippath))
             {
                 foreach (var zipEntryFileName in zip.EntryFileNames)
@@ -45,8 +48,12 @@ namespace TestApp
                     {
                         string fileNameInsideOfZip = zipEntryFileName.Substring(indexOfLastSlash+1);
                         pathInZip = zipEntryFileName;
+                        if (incomingFiles.Any(i => Path.GetFileName(i) == fileNameInsideOfZip))
+                        {
+                            destinationPathsInZip.
+                        }
                     }
-
+                    
                     zip.UpdateFile(@"C:\SideAndTestProjects\GenericCPlusPlusProject\pesho.cpp", pathInZip);
                     zip.Save();
                 }

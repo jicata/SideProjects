@@ -26,5 +26,8 @@
     <ClCompile Include="JA-2-Task-3-Fibonacci-Sum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BigInt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
