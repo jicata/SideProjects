@@ -1,0 +1,18 @@
+﻿@model IEnumerable<LearningSystem.Models.ViewModels.Courses.CourseVm>
+
+@{
+    ViewBag.Title = "Learning System";
+}
+
+<h2>Welcome to the learning system</h2>
+
+@foreach (var vm in Model)
+{
+    <div class="course">
+        <span class="course-prop">@Html.DisplayNameFor(courseVm => courseVm.Name)</span>
+        @Html.DisplayFor(vms => vm.Name)
+        <br />
+
+        @Html.ActionLink("Details", "Details", "Courses", new { id = vm.Id }, new { @class = "btn btn-lg btn-primary" })
+    </div>
+}

@@ -5,3 +5,28 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+<select id="fileId"></select>
+<script>
+    //var category = $(this).val();
+
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: 'GetCats',
+        dataType: "json",
+        error: function () {
+
+        },
+        success: function (data) {
+            $("#fileId").empty();
+            var $prevGroup, prevGroupName;
+            $.each(data, function () {
+                if (prevGroupName != this.Group.Name) {
+                    $prevGroup = $('<optgroup />').prop('label', this.Group.Name).appendTo('#fileId');
+                }
+                $("<option />").val(this.Value).text(this.Text).appendTo($prevGroup);
+                prevGroupName = this.Group.Name;
+            }
+        )}
+    });
+</script>

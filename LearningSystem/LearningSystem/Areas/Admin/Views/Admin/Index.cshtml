@@ -1,0 +1,33 @@
+﻿@model LearningSystem.Models.ViewModels.Admin.AdminPageVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Admin Panel";
+}
+
+<h2>Admin panel</h2>
+
+@Html.ActionLink("Add Course", "AddCourse", null, new { @class = "btn btn-lg btn-success" })
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-5 bordered">
+        <h3>Courses</h3>
+        @foreach (var course in Model.Courses)
+        {
+            <div class="admin-course">
+                <h4>@Html.DisplayFor(vm => course.Name)</h4>
+                @Html.ActionLink("Edit", "EditCourse", new { id = course.Id }, new { @class = "btn btn-md btn-warning" })
+            </div>
+        }
+    </div>
+    <div class="col-sm-5 col-sm-offset-1 bordered">
+        <h3>Users</h3>
+        @foreach (var user in Model.Users)
+        {
+            <div class="admin-user">
+                <h4>@Html.DisplayFor(vm => user.Name)</h4>
+                @Html.ActionLink("Edit", "EditUser", new { id = user.Id }, new { @class = "btn btn-md btn-warning" })
+            </div>
+        }
+    </div>
+</div>
