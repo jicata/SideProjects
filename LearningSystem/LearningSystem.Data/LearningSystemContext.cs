@@ -12,11 +12,11 @@ namespace LearningSystem.Data
         {
         }     
 
-        public DbSet<Student> Students { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
 
-        public DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
 
-        public DbSet<Article> Articles { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
 
         public static LearningSystemContext Create()
         {

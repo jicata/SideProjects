@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +83,10 @@
     <ProjectReference Include="..\LearningSystem.Models\LearningSystem.Models.csproj">
       <Project>{D71F4707-DF05-4ECF-AEC8-EA0746EB5D9D}</Project>
       <Name>LearningSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearningSystem.Services\LearningSystem.Services.csproj">
+      <Project>{B6CBCF0F-3DCC-404A-B356-EA6ECC1AC543}</Project>
+      <Name>LearningSystem.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
