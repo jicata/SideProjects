@@ -1,25 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
 using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
-using LearningSystem.Services;
 using Moq;
 
 namespace TestingGround
 {
     public static class Program
     {
+        private const string ControllerSuffix = "Controller";
+        private const string ServiceInterfacePrefix = "I";
+        private const string ServiceSuffix = "Service";
+        private const string MsEnterpriseServicesLibraryName = "System.EnterpriseServices";
+
+
         static void Main()
         {
-            // Initialize context
-            var context = new LearningSystemContext();
+
+            FindLargestFile(@"C:\SideAndTestProjects\LearningSystem\LearningSystem");
             Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
-            //In reality we can actually just call -> Assembly.GetExecutingAssembly();
+            // In reality we can actually just call -> Assembly.GetExecutingAssembly();
 
             var appUserData = new List<ApplicationUser>
             {
@@ -73,47 +77,102 @@ namespace TestingGround
             mockStudentSet.Setup(m => m.Find(It.IsAny<object[]>()))
             .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
-            Service service;
-            Type t = null;
+         
+            // discover controller type
+            Type controllerType = null;
 
             var typesInAssembly = assembly.DefinedTypes;
             foreach (var typeInfo in typesInAssembly)
             {
-                if (typeInfo.Name.Contains("UsersController"))
+                //ASSUMING WE KNOW THE NAME OF THE CONTROLLER
+                if (typeInfo.Name.Contains("Users"+ControllerSuffix))
                 {
-                    t = typeInfo.AsType();
+                    controllerType = typeInfo.AsType();
                 }
             }
 
-            var constructors = t.GetConstructors();
-            Type constructorParam = null;
-            foreach (var constructorInfo in constructors)
+            // convention-based controller and service naming
+            string controllerName = controllerType.FullName.Substring(controllerType.FullName.LastIndexOf(".") + 1).Replace("Controller", "");
+            string serviceInterfaceName = ServiceInterfacePrefix + controllerName + ServiceSuffix;
+          
+            // discover service
+            string serviceName = controllerName + ServiceSuffix;
+            Type service = null;
+            var loadedAssemblies = assembly.GetReferencedAssemblies().Where(r => r.Name.Contains("Services"));
+
+            foreach (var loadedAssembly in loadedAssemblies)
             {
-                foreach (var parameterInfo in constructorInfo.GetParameters())
+                var loaded = Assembly.Load(loadedAssembly);
+                foreach (var typeInAssembly in loaded.GetTypes())
                 {
-                    if (parameterInfo.ParameterType.IsAssignableFrom(typeof(Service)))
+
+                    if (typeInAssembly.Name == serviceName)
                     {
-                        constructorParam = parameterInfo.ParameterType;
+                        service = typeInAssembly;
+                        break;
                     }
                 }
             }
-            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            foreach (var assembly1 in loadedAssemblies)
+
+            // instantiate service
+
+            object serviceObject = Activator.CreateInstance(service);
+        
+            var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
+                                BindingFlags.NonPublic |
+                                BindingFlags.Public)
+                                .FirstOrDefault(f=>f.Name.Contains("Context"));
+            fieldOfService.SetValue(serviceObject,mockContext.Object);
+            
+
+            // discover constructors
+
+            var constructors = controllerType.GetConstructors();
+
+            object controller = null;
+
+            // find appropriate constructor and invoke it
+            // also make sure we inject our mocked service
+
+            foreach (var constructorInfo in constructors)
             {
-                foreach (var loadedAssembly in assembly1.GetTypes())
+                if (constructorInfo.GetParameters().Length == 0)
                 {
-                    Console.WriteLine(loadedAssembly);
+                    controller = constructorInfo.Invoke(new object[] {});
+                    var serviceField = controller.GetType().GetFields(BindingFlags.Instance |
+                                                        BindingFlags.NonPublic |
+                                                        BindingFlags.Public)
+                                                            .FirstOrDefault(f => f
+                                                                                .FieldType.Name == serviceInterfaceName);
+                    serviceField.SetValue(controller, serviceObject);
+                    break;
+                }
+                foreach (var parameterInfo in constructorInfo.GetParameters())
+                {
+                    if (parameterInfo.ParameterType.Name == serviceInterfaceName)
+                    {
+                        controller = constructorInfo.Invoke(new object[] {serviceObject});
+                        break;
+                    }
+                }
+                if (controller != null)
+                {
+                    break;
                 }
             }
-
-            var instanceOfClass = FormatterServices.GetUninitializedObject(t);
-            
+            var timeToAssert = controller.GetType().GetFields(BindingFlags.Instance |
+                                                  BindingFlags.NonPublic |
+                                                  BindingFlags.Public)
+                                                      .FirstOrDefault(f => f
+                                                                          .FieldType.Name == serviceInterfaceName);
+            var fieldValue = timeToAssert.GetValue(controller).GetType().Name;
+            Console.WriteLine(fieldValue);
 
             //foreach (var propertyInfo in properties)
             //{
             //    Console.WriteLine(propertyInfo);
             //}
-
+            // var instanceOfClass = FormatterServices.GetUninitializedObject(t);
             // MockDb - > Mock Serivice - > Insert it into controller
             // Discover controller alongside its Constructor
             // Mock HTTPContext
@@ -153,6 +212,15 @@ namespace TestingGround
 
 
             return mockDbSet;
+        }
+
+        private static  void FindLargestFile(string dirPath)
+        {
+            List<string> files = Directory.EnumerateFiles(dirPath).ToList();
+
+            files[0] = files.OrderByDescending(f => new FileInfo(f).Length).First();
+            Console.WriteLine(files[0]);
+
         }
 
 
