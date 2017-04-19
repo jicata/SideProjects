@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
 using LearningSystem.Services.Interfaces;
 
@@ -10,6 +11,10 @@ namespace LearningSystem.Services
 {
     public class AccountService : Service, IAccountService
     {
+        public AccountService(LearningSystemContext context) : base(context)
+        {
+        }
+
         public void CreateStudent(ApplicationUser user)
         {
             Student student = new Student();

@@ -4,9 +4,9 @@ namespace LearningSystem.Services
 {
     public abstract class Service
     {
-        public Service()
+        protected Service(LearningSystemContext context)
         {
-            this.Context = new LearningSystemContext();
+            this.Context = context;
         }
 
         protected LearningSystemContext Context { get; }

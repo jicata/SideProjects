@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using LearningSystem.Data;
 using LearningSystem.Models.BindingModels.Blog;
 using LearningSystem.Models.EntityModels;
 using LearningSystem.Models.ViewModels.Blog;
@@ -13,6 +14,10 @@ namespace LearningSystem.Services
 {
     public class BlogService : Service, IBlogService
     {
+        public BlogService(LearningSystemContext context) : base(context)
+        {
+        }
+
         public IEnumerable<ArticleVm> GetAllArticles()
         {
             IEnumerable<Article> models = this.Context.Articles;

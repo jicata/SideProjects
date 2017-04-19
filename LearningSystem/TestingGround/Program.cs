@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
+using LearningSystem.Services;
 using Moq;
 
 namespace TestingGround
@@ -16,7 +18,7 @@ namespace TestingGround
         private const string ServiceInterfacePrefix = "I";
         private const string ServiceSuffix = "Service";
         private const string MsEnterpriseServicesLibraryName = "System.EnterpriseServices";
-
+        public delegate T ObjectActivator<T>(params object[] args);
 
         static void Main()
         {
@@ -115,8 +117,21 @@ namespace TestingGround
             }
 
             // instantiate service
+            ConstructorInfo ctor = service
+                .GetConstructors()
+                .FirstOrDefault();
 
-            object serviceObject = Activator.CreateInstance(service);
+            ObjectActivator<Service> serviceActivator = GetActivator<Service>(ctor);
+            Service serviceObject = serviceActivator(mockContext.Object);
+
+            
+         
+
+            //object serviceObject = service
+            //    .GetConstructors()
+            //    .FirstOrDefault()
+            //    .Invoke(new object[] {mockContext.Object});
+          
         
             var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
                                 BindingFlags.NonPublic |
@@ -166,7 +181,7 @@ namespace TestingGround
                                                       .FirstOrDefault(f => f
                                                                           .FieldType.Name == serviceInterfaceName);
             var fieldValue = timeToAssert.GetValue(controller).GetType().Name;
-            Console.WriteLine(fieldValue);
+    
 
             //foreach (var propertyInfo in properties)
             //{
@@ -221,6 +236,47 @@ namespace TestingGround
             files[0] = files.OrderByDescending(f => new FileInfo(f).Length).First();
             Console.WriteLine(files[0]);
 
+        }
+        public static ObjectActivator<T> GetActivator<T>(ConstructorInfo ctor)
+        {
+            Type type = ctor.DeclaringType;
+            ParameterInfo[] paramsInfo = ctor.GetParameters();
+
+            //create a single param of type object[]
+            ParameterExpression param =
+                Expression.Parameter(typeof(object[]), "args");
+
+            Expression[] argsExp =
+                new Expression[paramsInfo.Length];
+
+            //pick each arg from the params array 
+            //and create a typed expression of them
+            for (int i = 0; i < paramsInfo.Length; i++)
+            {
+                Expression index = Expression.Constant(i);
+                Type paramType = paramsInfo[i].ParameterType;
+
+                Expression paramAccessorExp =
+                    Expression.ArrayIndex(param, index);
+
+                Expression paramCastExp =
+                    Expression.Convert(paramAccessorExp, paramType);
+
+                argsExp[i] = paramCastExp;
+            }
+
+            //make a NewExpression that calls the
+            //ctor with the args we just created
+            NewExpression newExp = Expression.New(ctor, argsExp);
+
+            //create a lambda with the New
+            //Expression as body and our param object[] as arg
+            LambdaExpression lambda =
+                Expression.Lambda(typeof(ObjectActivator<T>), newExp, param);
+
+            //compile it
+            ObjectActivator<T> compiled = (ObjectActivator<T>)lambda.Compile();
+            return compiled;
         }
 
 

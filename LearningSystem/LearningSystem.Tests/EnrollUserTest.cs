@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization;
 using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
+using LearningSystem.Services;
 using Moq;
 using NUnit.Framework;
 
@@ -17,12 +20,14 @@ namespace LearningSystem.Tests
         private const string ServiceInterfacePrefix = "I";
         private const string ServiceSuffix = "Service";
         private const string MsEnterpriseServicesLibraryName = "System.EnterpriseServices";
+        public delegate T ObjectActivator<T>(params object[] args);
+
         [TestCase]
         public void TestEnrollUserWithValidUser()
         {
 
-            Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
-            //Assembly assembly = Assembly.GetExecutingAssembly();
+            //Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
+           Assembly assembly = Assembly.GetExecutingAssembly();
             // In reality we can actually just call -> Assembly.GetExecutingAssembly();
 
             var appUserData = new List<ApplicationUser>
@@ -116,14 +121,18 @@ namespace LearningSystem.Tests
                     }
                 }
             }
-          
-            // instantiate service
 
-            object serviceObject = Activator.CreateInstance(service);
+            // instantiate service
+           
+
+            ConstructorInfo ctor = service
+              .GetConstructors()
+              .FirstOrDefault();
+     
+          
+            object serviceObject = FormatterServices.GetUninitializedObject(service);
             Assert.AreEqual(1, 1);
             return;
-
-
 
             var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
                                 BindingFlags.NonPublic |
@@ -168,14 +177,39 @@ namespace LearningSystem.Tests
                 }
             }
             var timeToAssert = controller.GetType().GetFields(BindingFlags.Instance |
-                                               BindingFlags.NonPublic |
-                                               BindingFlags.Public)
-                                                   .FirstOrDefault(f => f
-                                                                       .FieldType.Name == serviceInterfaceName);
+                                                  BindingFlags.NonPublic |
+                                                  BindingFlags.Public)
+                                                      .FirstOrDefault(f => f
+                                                                          .FieldType.Name == serviceInterfaceName);
             var fieldValue = timeToAssert.GetValue(controller).GetType().Name;
-            Assert.AreEqual("UsersService",fieldValue);
+
+            Assert.AreEqual("UsersService", fieldValue);
+            return;
+            //foreach (var propertyInfo in properties)
+            //{
+            //    Console.WriteLine(propertyInfo);
+            //}
+            // var instanceOfClass = FormatterServices.GetUninitializedObject(t);
+            // MockDb - > Mock Serivice - > Insert it into controller
+            // Discover controller alongside its Constructor
+            // Mock HTTPContext
+            // Use it somehow
+
+            //Arrange
+            // - Discover correct Action
+            // -- via reflection and attributes?
+            // - Disover its parameters and possibly return type
+
+            //Act
+            // - Execute action (via HTTPContext?)
+            // - Make sure we have results in appropriate format
+
+            //Assert
+            // - Compare whatever the method has returned to what we have 
+
+
         }
-        public  Mock<DbSet<T>> AsDbSet<T>(List<T> sourceList) where T : class
+        public static Mock<DbSet<T>> AsDbSet<T>(List<T> sourceList) where T : class
         {
             var queryable = sourceList.AsQueryable();
             var mockDbSet = new Mock<DbSet<T>>();
@@ -191,7 +225,54 @@ namespace LearningSystem.Tests
             {
                 foreach (var t in ts) { sourceList.Remove(t); }
             });
+
+
+
             return mockDbSet;
         }
+
+        public static ObjectActivator<T> GetActivator<T>(ConstructorInfo ctor)
+        {
+            Type type = ctor.DeclaringType;
+            ParameterInfo[] paramsInfo = ctor.GetParameters();
+
+            //create a single param of type object[]
+            ParameterExpression param =
+                Expression.Parameter(typeof(object[]), "args");
+
+            Expression[] argsExp =
+                new Expression[paramsInfo.Length];
+
+            //pick each arg from the params array 
+            //and create a typed expression of them
+            for (int i = 0; i < paramsInfo.Length; i++)
+            {
+                Expression index = Expression.Constant(i);
+                Type paramType = paramsInfo[i].ParameterType;
+
+                Expression paramAccessorExp =
+                    Expression.ArrayIndex(param, index);
+
+                Expression paramCastExp =
+                    Expression.Convert(paramAccessorExp, paramType);
+
+                argsExp[i] = paramCastExp;
+            }
+
+            //make a NewExpression that calls the
+            //ctor with the args we just created
+            NewExpression newExp = Expression.New(ctor, argsExp);
+
+            //create a lambda with the New
+            //Expression as body and our param object[] as arg
+            LambdaExpression lambda =
+                Expression.Lambda(typeof(ObjectActivator<T>), newExp, param);
+
+            //compile it
+            ObjectActivator<T> compiled = (ObjectActivator<T>)lambda.Compile();
+            return compiled;
+        }
+
+
     }
 }

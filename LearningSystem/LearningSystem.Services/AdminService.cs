@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
 using LearningSystem.Models.ViewModels.Admin;
 using LearningSystem.Models.ViewModels.Courses;
@@ -13,6 +14,10 @@ namespace LearningSystem.Services
 {
     public class AdminService : Service, IAdminService
     {
+        public AdminService(LearningSystemContext context) : base(context)
+        {
+        }
+
         public AdminPageVm GetAdminPage()
         {
             AdminPageVm page = new AdminPageVm();

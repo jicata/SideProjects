@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using LearningSystem.Data;
 using LearningSystem.Models.BindingModels.Users;
 using LearningSystem.Models.EntityModels;
 using LearningSystem.Models.ViewModels.Users;
@@ -10,6 +11,10 @@ namespace LearningSystem.Services
 {
     public class UsersService : Service, IUsersService
     {
+        public UsersService(LearningSystemContext context) : base(context)
+        {
+        }
+
         public Student GetCurrentStudent(string userName)
         {
             var user = this.Context.Users.FirstOrDefault(applicationUser => applicationUser.UserName == userName);
