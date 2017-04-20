@@ -26,7 +26,7 @@ namespace LearningSystem.Tests
         public void TestEnrollUserWithValidUser()
         {
 
-            //Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
+           // Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
            Assembly assembly = Assembly.GetExecutingAssembly();
             // In reality we can actually just call -> Assembly.GetExecutingAssembly();
 
@@ -81,7 +81,7 @@ namespace LearningSystem.Tests
             mockStudentSet.Setup(m => m.Find(It.IsAny<object[]>()))
             .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
-
+     
             // discover controller type
             Type controllerType = null;
 
@@ -125,22 +125,29 @@ namespace LearningSystem.Tests
             // instantiate service
            
 
+
             ConstructorInfo ctor = service
               .GetConstructors()
               .FirstOrDefault();
-     
-          
-            object serviceObject = FormatterServices.GetUninitializedObject(service);
-            Assert.AreEqual(1, 1);
+
+
+            var initiHere = mockContext.Object.Courses.Find(3);
+            Assert.AreEqual(null, initiHere);
             return;
+
+            object serviceObject = FormatterServices.GetUninitializedObject(service);
+            
 
             var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
                                 BindingFlags.NonPublic |
                                 BindingFlags.Public)
                                 .FirstOrDefault(f => f.Name.Contains("Context"));
+
+
             fieldOfService.SetValue(serviceObject, mockContext.Object);
 
-
+            Assert.AreEqual("Students", fieldOfService.GetValue(serviceObject).GetType().GetProperties().FirstOrDefault().Name);
+            return;
             // discover constructors
 
             var constructors = controllerType.GetConstructors();

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization;
 using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
 using LearningSystem.Services;
@@ -121,24 +122,22 @@ namespace TestingGround
                 .GetConstructors()
                 .FirstOrDefault();
 
-            ObjectActivator<Service> serviceActivator = GetActivator<Service>(ctor);
-            Service serviceObject = serviceActivator(mockContext.Object);
+            object serviceObject = FormatterServices.GetUninitializedObject(service);
 
-            
-         
 
             //object serviceObject = service
             //    .GetConstructors()
             //    .FirstOrDefault()
             //    .Invoke(new object[] {mockContext.Object});
-          
-        
+
+
             var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
                                 BindingFlags.NonPublic |
                                 BindingFlags.Public)
                                 .FirstOrDefault(f=>f.Name.Contains("Context"));
             fieldOfService.SetValue(serviceObject,mockContext.Object);
-            
+
+            Console.WriteLine(fieldOfService.Name);
 
             // discover constructors
 

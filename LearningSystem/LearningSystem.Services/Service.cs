@@ -9,6 +9,8 @@ namespace LearningSystem.Services
             this.Context = context;
         }
 
+        protected int Count { get; set; }
+
         protected LearningSystemContext Context { get; }
     }
 }
