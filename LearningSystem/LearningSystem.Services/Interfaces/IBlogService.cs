@@ -4,7 +4,7 @@ using LearningSystem.Models.ViewModels.Blog;
 
 namespace LearningSystem.Services.Interfaces
 {
-    public interface IBlogService
+    public interface IBlogService : IService
     {
         IEnumerable<ArticleVm> GetAllArticles();
         void AddNewArticle(AddArticleBm bind, string username);

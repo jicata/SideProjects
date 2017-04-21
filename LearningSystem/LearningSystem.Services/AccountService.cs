@@ -11,7 +11,7 @@ namespace LearningSystem.Services
 {
     public class AccountService : Service, IAccountService
     {
-        public AccountService(LearningSystemContext context) : base(context)
+        public AccountService(ILearningSystemContext context) : base(context)
         {
         }
 

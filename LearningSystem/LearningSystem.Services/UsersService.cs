@@ -11,7 +11,7 @@ namespace LearningSystem.Services
 {
     public class UsersService : Service, IUsersService
     {
-        public UsersService(LearningSystemContext context) : base(context)
+        public UsersService(ILearningSystemContext context) : base(context)
         {
         }
 

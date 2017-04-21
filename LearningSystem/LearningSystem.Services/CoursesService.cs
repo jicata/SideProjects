@@ -8,7 +8,7 @@ namespace LearningSystem.Services
 {
     public class CoursesService : Service, ICoursesService
     {
-        public CoursesService(LearningSystemContext context) : base(context)
+        public CoursesService(ILearningSystemContext context) : base(context)
         {
         }
 

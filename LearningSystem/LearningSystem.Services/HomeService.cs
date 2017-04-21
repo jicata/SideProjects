@@ -9,7 +9,7 @@ namespace LearningSystem.Services
 {
     public class HomeService : Service, IHomeService
     {
-        public HomeService(LearningSystemContext context) : base(context)
+        public HomeService(ILearningSystemContext context) : base(context)
         {
         }
 

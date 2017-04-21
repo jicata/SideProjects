@@ -5,7 +5,7 @@ namespace LearningSystem.Data
 {
     using System.Data.Entity;
 
-    public class LearningSystemContext : IdentityDbContext<ApplicationUser>, IDbContext
+    public class LearningSystemContext : IdentityDbContext<ApplicationUser>, ILearningSystemContext
     {
         // "data source=(LocalDb)\\MSSQLLocalDB;initial catalog=LearningSystem;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"
         public LearningSystemContext()
@@ -23,7 +23,6 @@ namespace LearningSystem.Data
         {
             return new LearningSystemContext();
         }
-
         
     }
 }

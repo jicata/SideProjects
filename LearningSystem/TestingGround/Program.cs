@@ -64,7 +64,7 @@ namespace TestingGround
             var mockCourseSet = courseData.AsDbSet();
             var mockUserSet = appUserData.AsDbSet();
 
-            var mockContext = new Mock<LearningSystemContext>();
+            var mockContext = new Mock<ILearningSystemContext>();
             mockContext.Setup(c => c.Students).Returns(mockStudentSet.Object);
             mockContext.Setup(c => c.Courses).Returns(mockCourseSet.Object);
             mockContext.Setup(c => c.Users).Returns(mockUserSet.Object);

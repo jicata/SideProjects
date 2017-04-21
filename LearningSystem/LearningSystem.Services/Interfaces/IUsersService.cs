@@ -4,7 +4,7 @@ using LearningSystem.Models.ViewModels.Users;
 
 namespace LearningSystem.Services.Interfaces
 {
-    public interface IUsersService
+    public interface IUsersService : IService
     {
         Student GetCurrentStudent(string userName);
         void EnrollStudentInCourse(int courseId, Student student);

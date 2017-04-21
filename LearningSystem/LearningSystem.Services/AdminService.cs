@@ -14,7 +14,7 @@ namespace LearningSystem.Services
 {
     public class AdminService : Service, IAdminService
     {
-        public AdminService(LearningSystemContext context) : base(context)
+        public AdminService(ILearningSystemContext context) : base(context)
         {
         }
 

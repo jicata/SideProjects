@@ -1,34 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Serialization;
+using System.Security.Principal;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 using LearningSystem.Data;
 using LearningSystem.Models.EntityModels;
-using LearningSystem.Services;
+using LearningSystem.Services.Interfaces;
 using Moq;
 using NUnit.Framework;
 
 namespace LearningSystem.Tests
-{   
+{
     [TestFixture]
     public class EnrollUserTest
     {
         private const string ControllerSuffix = "Controller";
-        private const string ServiceInterfacePrefix = "I";
-        private const string ServiceSuffix = "Service";
-        private const string MsEnterpriseServicesLibraryName = "System.EnterpriseServices";
-        public delegate T ObjectActivator<T>(params object[] args);
+        private const string ServiceAssemblyName = "LearningSystem.Services";
+
+        private const string ContextInterfaceName = "ILearningSystemContext";
+        private const string ControllerName = "Users";
+        private const string ActionNameToTest = "Profile";
+
+        private HttpContextBase rmContext;
+        private HttpRequestBase rmRequest;
+        private Mock<HttpContextBase> moqContext;
+        private Mock<HttpRequestBase> moqRequest;
+        private NameValueCollection formValues;
+
+        [OneTimeSetUp]
+        public void TestSetup()
+        {
+            moqContext = new Mock<HttpContextBase>();
+            moqRequest = new Mock<HttpRequestBase>();
+            moqContext.Setup(x => x.Request).Returns(moqRequest.Object);
+            RouteCollection routes = new RouteCollection();
+
+            // what do?
+            // RouteConfig.RegisterRoutes(routes);
+
+            moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/Home/Index");
+
+            moqContext = new Mock<HttpContextBase>();
+            moqRequest = new Mock<HttpRequestBase>();
+            moqContext.Setup(x => x.Request).Returns(moqRequest.Object);
+            // Create a "fake" form
+            formValues = new NameValueCollection
+            {
+                { "FirstName", "Jonathan" },
+                { "LastName", "Danylko" }
+            };
+            moqRequest.Setup(r => r.Form).Returns(formValues);
+        }
 
         [TestCase]
         public void TestEnrollUserWithValidUser()
         {
 
-           // Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
-           Assembly assembly = Assembly.GetExecutingAssembly();
-            // In reality we can actually just call -> Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
+          //  Assembly assembly = Assembly.GetExecutingAssembly();
+
 
             var appUserData = new List<ApplicationUser>
             {
@@ -66,12 +102,12 @@ namespace LearningSystem.Tests
             var mockCourseSet = AsDbSet(courseData);
             var mockUserSet = AsDbSet(appUserData);
 
-            var mockContext = new Mock<LearningSystemContext>();
+            var mockContext = new Mock<ILearningSystemContext>();
             mockContext.Setup(c => c.Students).Returns(mockStudentSet.Object);
             mockContext.Setup(c => c.Courses).Returns(mockCourseSet.Object);
             mockContext.Setup(c => c.Users).Returns(mockUserSet.Object);
 
-           
+
             mockStudentSet.Setup(m => m.Find(It.IsAny<object[]>()))
                 .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
@@ -81,124 +117,63 @@ namespace LearningSystem.Tests
             mockStudentSet.Setup(m => m.Find(It.IsAny<object[]>()))
             .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
-     
-            // discover controller type
-            Type controllerType = null;
 
-            var typesInAssembly = assembly.DefinedTypes;
-            foreach (var typeInfo in typesInAssembly)
+            Type serviceType = typeof(IService);
+
+            Type controllerType = DiscoverControllerType(assembly);
+
+            ConstructorInfo controllerConstructor = ExtractConstructorFromController(controllerType, serviceType);
+
+            Type serviceInterfaceType = DiscoverServiceInterface(controllerConstructor);
+
+            Type[] typesInLoadedAssembly = DiscoverTypesInServiceAssembly(assembly);
+
+            Type concreteServiceType = DiscoverServiceType(typesInLoadedAssembly, serviceInterfaceType);
+
+            ConstructorInfo serviceConstructor = ExtractServiceConstructor(concreteServiceType);
+
+            object service = serviceConstructor.Invoke(new object[] { mockContext.Object });
+
+            object controller = controllerConstructor.Invoke(new object[] { service });
+
+      
+
+            var controllerContext = new ControllerContext(moqContext.Object, new RouteData(), controller as Controller);
+            HttpContext.Current.User = new GenericPrincipal(new GenericIdentity("asd"), new string[0]);
+
+
+            PropertyInfo httpBaseProperty =
+                controller.GetType().GetProperties().FirstOrDefault(p => p.Name == "ControllerContext");
+
+            httpBaseProperty.SetValue(controller, controllerContext);
+
+            MethodInfo methodToTest = null;
+            var methods = controller.GetType().GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            foreach (var methodInfo in methods)
             {
-                //ASSUMING WE KNOW THE NAME OF THE CONTROLLER
-                if (typeInfo.Name.Contains("Users" + ControllerSuffix))
+                if (methodInfo.Name == ActionNameToTest)
                 {
-                    controllerType = typeInfo.AsType();
+                    methodToTest = methodInfo;
                     break;
                 }
-            }
-
-            // convention-based controller and service naming
-            string controllerName = controllerType
-                .FullName
-                .Substring(controllerType.FullName.LastIndexOf(".") + 1)
-                .Replace("Controller", "");
-
-            string serviceInterfaceName = ServiceInterfacePrefix + controllerName + ServiceSuffix;
-
-            // discover service
-            string serviceName = controllerName + ServiceSuffix;
-            Type service = null;
-            var referencedAssemblies = assembly.GetReferencedAssemblies().Where(r => r.Name.Contains("Services"));
-
-            foreach (var referencedAssembly in referencedAssemblies)
-            {
-                var loaded = Assembly.Load(referencedAssembly);
-                foreach (var typeInAssembly in loaded.GetTypes())
+                object[] attributes = methodInfo.GetCustomAttributes(true);
+                foreach (var attribute in attributes)
                 {
-                    if (typeInAssembly.Name == serviceName)
+                    RouteAttribute routeAttribute = attribute as RouteAttribute;
+
+                    if (routeAttribute != null && routeAttribute.Name==ActionNameToTest)
                     {
-                        service = typeInAssembly;
+                        methodToTest = methodInfo;
                         break;
                     }
                 }
-            }
-
-            // instantiate service
-           
-
-
-            ConstructorInfo ctor = service
-              .GetConstructors()
-              .FirstOrDefault();
-
-
-            var initiHere = mockContext.Object.Courses.Find(3);
-            Assert.AreEqual(null, initiHere);
-            return;
-
-            object serviceObject = FormatterServices.GetUninitializedObject(service);
-            
-
-            var fieldOfService = serviceObject.GetType().BaseType.GetFields(BindingFlags.Instance |
-                                BindingFlags.NonPublic |
-                                BindingFlags.Public)
-                                .FirstOrDefault(f => f.Name.Contains("Context"));
-
-
-            fieldOfService.SetValue(serviceObject, mockContext.Object);
-
-            Assert.AreEqual("Students", fieldOfService.GetValue(serviceObject).GetType().GetProperties().FirstOrDefault().Name);
-            return;
-            // discover constructors
-
-            var constructors = controllerType.GetConstructors();
-
-            object controller = null;
-
-            // find appropriate constructor and invoke it
-            // also make sure we inject our mocked service
-
-            foreach (var constructorInfo in constructors)
-            {
-                if (constructorInfo.GetParameters().Length == 0)
-                {
-                    controller = constructorInfo.Invoke(new object[] { });
-                    var serviceField = controller.GetType().GetFields(BindingFlags.Instance |
-                                                        BindingFlags.NonPublic |
-                                                        BindingFlags.Public)
-                                                            .FirstOrDefault(f => f
-                                                                                .FieldType.Name == serviceInterfaceName);
-                    serviceField.SetValue(controller, serviceObject);
-                    break;
-                }
-                foreach (var parameterInfo in constructorInfo.GetParameters())
-                {
-                    if (parameterInfo.ParameterType.Name == serviceInterfaceName)
-                    {
-                        controller = constructorInfo.Invoke(new object[] { serviceObject });
-                        break;
-                    }
-                }
-                if (controller != null)
+                if (methodToTest != null)
                 {
                     break;
                 }
             }
-            var timeToAssert = controller.GetType().GetFields(BindingFlags.Instance |
-                                                  BindingFlags.NonPublic |
-                                                  BindingFlags.Public)
-                                                      .FirstOrDefault(f => f
-                                                                          .FieldType.Name == serviceInterfaceName);
-            var fieldValue = timeToAssert.GetValue(controller).GetType().Name;
-
-            Assert.AreEqual("UsersService", fieldValue);
-            return;
-            //foreach (var propertyInfo in properties)
-            //{
-            //    Console.WriteLine(propertyInfo);
-            //}
-            // var instanceOfClass = FormatterServices.GetUninitializedObject(t);
-            // MockDb - > Mock Serivice - > Insert it into controller
-            // Discover controller alongside its Constructor
+            var result = methodToTest.Invoke(controller, new object[] {});
+            Assert.AreEqual(ActionNameToTest,methodToTest.Name);
             // Mock HTTPContext
             // Use it somehow
 
@@ -216,6 +191,63 @@ namespace LearningSystem.Tests
 
 
         }
+
+        private static ConstructorInfo ExtractServiceConstructor(Type concreteServiceType)
+        {
+            var serviceConstructor = concreteServiceType
+                .GetConstructors()
+                .FirstOrDefault(c => c.GetParameters()
+                                         .Any(p => p.ParameterType.Name == ContextInterfaceName)
+                                     && c.GetParameters().Length == 1);
+            return serviceConstructor;
+        }
+
+        private static Type DiscoverServiceType(Type[] typesInLoadedAssembly, Type serviceInterfaceType)
+        {
+            Type concreteServiceType = typesInLoadedAssembly.FirstOrDefault(t => serviceInterfaceType.IsAssignableFrom(t));
+            return concreteServiceType;
+        }
+
+        private static Type DiscoverServiceInterface(ConstructorInfo controllerConstructor)
+        {
+            Type serviceInterfaceType = controllerConstructor
+                .GetParameters()
+                .FirstOrDefault(p => typeof(IService).IsAssignableFrom(p.ParameterType)).ParameterType;
+            return serviceInterfaceType;
+        }
+
+        private static Type[] DiscoverTypesInServiceAssembly(Assembly assembly)
+        {
+            AssemblyName serviceAssembly = assembly
+                .GetReferencedAssemblies().FirstOrDefault(a => a.Name == ServiceAssemblyName);
+
+            Type[] typesInLoadedAssembly = Assembly.Load(serviceAssembly).GetTypes();
+            return typesInLoadedAssembly;
+        }
+
+        private static Type DiscoverControllerType(Assembly assembly)
+        {
+            Type controllerType;
+            IEnumerable<TypeInfo> typesInAssembly = assembly.DefinedTypes;
+            foreach (var typeInfo in typesInAssembly)
+            {
+                if (typeInfo.Name.Contains(ControllerName + ControllerSuffix))
+                {
+                    return controllerType = typeInfo.AsType();
+                }
+            }
+            return null;
+        }
+
+        private static ConstructorInfo ExtractConstructorFromController(Type controllerType, Type serviceType)
+        {
+
+            return controllerType
+                .GetConstructors()
+                .FirstOrDefault(c => c.GetParameters()
+                                     .Any(p => serviceType.IsAssignableFrom(p.ParameterType)));
+        }
+
         public static Mock<DbSet<T>> AsDbSet<T>(List<T> sourceList) where T : class
         {
             var queryable = sourceList.AsQueryable();
@@ -233,53 +265,7 @@ namespace LearningSystem.Tests
                 foreach (var t in ts) { sourceList.Remove(t); }
             });
 
-
-
             return mockDbSet;
         }
-
-        public static ObjectActivator<T> GetActivator<T>(ConstructorInfo ctor)
-        {
-            Type type = ctor.DeclaringType;
-            ParameterInfo[] paramsInfo = ctor.GetParameters();
-
-            //create a single param of type object[]
-            ParameterExpression param =
-                Expression.Parameter(typeof(object[]), "args");
-
-            Expression[] argsExp =
-                new Expression[paramsInfo.Length];
-
-            //pick each arg from the params array 
-            //and create a typed expression of them
-            for (int i = 0; i < paramsInfo.Length; i++)
-            {
-                Expression index = Expression.Constant(i);
-                Type paramType = paramsInfo[i].ParameterType;
-
-                Expression paramAccessorExp =
-                    Expression.ArrayIndex(param, index);
-
-                Expression paramCastExp =
-                    Expression.Convert(paramAccessorExp, paramType);
-
-                argsExp[i] = paramCastExp;
-            }
-
-            //make a NewExpression that calls the
-            //ctor with the args we just created
-            NewExpression newExp = Expression.New(ctor, argsExp);
-
-            //create a lambda with the New
-            //Expression as body and our param object[] as arg
-            LambdaExpression lambda =
-                Expression.Lambda(typeof(ObjectActivator<T>), newExp, param);
-
-            //compile it
-            ObjectActivator<T> compiled = (ObjectActivator<T>)lambda.Compile();
-            return compiled;
-        }
-
-
     }
 }

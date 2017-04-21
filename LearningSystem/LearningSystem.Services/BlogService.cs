@@ -14,7 +14,7 @@ namespace LearningSystem.Services
 {
     public class BlogService : Service, IBlogService
     {
-        public BlogService(LearningSystemContext context) : base(context)
+        public BlogService(ILearningSystemContext context) : base(context)
         {
         }
 
