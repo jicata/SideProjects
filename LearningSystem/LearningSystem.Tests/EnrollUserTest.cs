@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
@@ -26,6 +26,8 @@ namespace LearningSystem.Tests
         private const string ContextInterfaceName = "ILearningSystemContext";
         private const string ControllerName = "Users";
         private const string ActionNameToTest = "Profile";
+        private const string AutomapperConfig = "AutomapperConfig";
+
 
         private HttpContextBase rmContext;
         private HttpRequestBase rmRequest;
@@ -63,7 +65,7 @@ namespace LearningSystem.Tests
         {
 
             Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
-          //  Assembly assembly = Assembly.GetExecutingAssembly();
+            //Assembly assembly = Assembly.GetExecutingAssembly();
 
 
             var appUserData = new List<ApplicationUser>
@@ -71,8 +73,10 @@ namespace LearningSystem.Tests
                 new ApplicationUser()
                 {
                     Id = "asd",
+                    UserName = "pesho",
                     Email = "ne@znam.bg",
-                    PasswordHash = "hashed"
+                    PasswordHash = "hashed",
+                    Name = "pesho"
                 }
             };
 
@@ -94,9 +98,11 @@ namespace LearningSystem.Tests
                 new Student()
                 {
                     Id = 1,
-                    User = new ApplicationUser()
+                    User = appUserData[0],
+                    Courses = courseData
                 }
             };
+            //courseData[0].Students = studentData;
 
             var mockStudentSet = AsDbSet(studentData);
             var mockCourseSet = AsDbSet(courseData);
@@ -118,6 +124,10 @@ namespace LearningSystem.Tests
             .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
 
+            Type automapperType = assembly.GetTypes().FirstOrDefault(t => t.Name == AutomapperConfig);
+            MethodInfo configureMappings = automapperType.GetMethod("ConfigureMappings");
+            configureMappings.Invoke(null, null);
+
             Type serviceType = typeof(IService);
 
             Type controllerType = DiscoverControllerType(assembly);
@@ -136,10 +146,13 @@ namespace LearningSystem.Tests
 
             object controller = controllerConstructor.Invoke(new object[] { service });
 
-      
-
+            var user = new Mock<IPrincipal>();
+            var identity = new Mock<IIdentity>();
+            moqContext.Setup(c => c.User).Returns(user.Object);
+            user.Setup(u => u.Identity).Returns(identity.Object);
+            identity.Setup(i => i.IsAuthenticated).Returns(true);
+            identity.Setup(i => i.Name).Returns("pesho");
             var controllerContext = new ControllerContext(moqContext.Object, new RouteData(), controller as Controller);
-            HttpContext.Current.User = new GenericPrincipal(new GenericIdentity("asd"), new string[0]);
 
 
             PropertyInfo httpBaseProperty =
@@ -161,7 +174,7 @@ namespace LearningSystem.Tests
                 {
                     RouteAttribute routeAttribute = attribute as RouteAttribute;
 
-                    if (routeAttribute != null && routeAttribute.Name==ActionNameToTest)
+                    if (routeAttribute != null && routeAttribute.Name == ActionNameToTest)
                     {
                         methodToTest = methodInfo;
                         break;
@@ -172,24 +185,66 @@ namespace LearningSystem.Tests
                     break;
                 }
             }
-            var result = methodToTest.Invoke(controller, new object[] {});
-            Assert.AreEqual(ActionNameToTest,methodToTest.Name);
-            // Mock HTTPContext
-            // Use it somehow
+            HashSet<PropertyInfo> matchedPinfos = new HashSet<PropertyInfo>();
+            ViewResult result = methodToTest.Invoke(controller, new object[] { }) as ViewResult;
+            object model = result.Model;
+            PropertyInfo[] propertiesOfViewResultModel = model.GetType().GetProperties();
+            PropertyInfo[] propertiesOfModel = appUserData[0]
+                .GetType()
+                .GetProperties().Where(p =>
+                                    p.Name == "Name" || p.Name == "BirthDate")
+                                    .ToArray();
 
-            //Arrange
-            // - Discover correct Action
-            // -- via reflection and attributes?
-            // - Disover its parameters and possibly return type
+            Dictionary<object, List<PropertyInfo>> propertiesOfViewModel = new Dictionary<object, List<PropertyInfo>>();
+            propertiesOfViewModel = RetrieveProperties(model, propertiesOfViewResultModel, propertiesOfViewModel);
 
-            //Act
-            // - Execute action (via HTTPContext?)
-            // - Make sure we have results in appropriate format
-
-            //Assert
-            // - Compare whatever the method has returned to what we have 
+            Dictionary<object, List<PropertyInfo>> propertiesOfActualModel = new Dictionary<object, List<PropertyInfo>>();
+            propertiesOfActualModel = RetrieveProperties((object)studentData[0], propertiesOfModel,
+                propertiesOfActualModel);
 
 
+        }
+
+        private Dictionary<object, List<PropertyInfo>> RetrieveProperties(object model,
+            PropertyInfo[] properties,
+            Dictionary<object, List<PropertyInfo>> retrievedProperties)
+        {
+
+            foreach (var propertyInfo in properties)
+            {
+                if (propertyInfo.PropertyType.GetInterface("IEnumerable") != null
+                    && propertyInfo.PropertyType.Name.ToLower() != "string"
+                    && propertyInfo.PropertyType.Name.ToLower() != "datetime"
+                    && !propertyInfo.PropertyType.GetGenericArguments()[0].IsPrimitive)
+                {
+                    var collectionOfModels = propertyInfo.GetValue(model) as IEnumerable;
+                    foreach (var newModel in collectionOfModels)
+                    {
+                        RetrieveProperties(newModel, newModel.GetType().GetProperties(), retrievedProperties);
+                    }
+
+                }
+                else if (!propertyInfo.PropertyType.IsPrimitive
+                         && propertyInfo.PropertyType.Name.ToLower() != "string"
+                         && propertyInfo.PropertyType.Name.ToLower() != "datetime")
+                {
+                    object innerObject = propertyInfo.GetValue(model);
+                    RetrieveProperties(innerObject, innerObject.GetType().GetProperties(), retrievedProperties);
+                }
+                else
+                {
+                    if (!retrievedProperties.ContainsKey(model))
+                    {
+                        retrievedProperties.Add(model, new List<PropertyInfo>() { propertyInfo });
+                    }
+                    else
+                    {
+                        retrievedProperties[model].Add(propertyInfo);
+                    }
+                }
+
+            }
+            return retrievedProperties;
         }
 
         private static ConstructorInfo ExtractServiceConstructor(Type concreteServiceType)

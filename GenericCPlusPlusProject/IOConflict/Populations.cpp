@@ -4347,7 +4347,7 @@ size_t* getPopulationsSorted() {
 		populations[cityInd++] = 203163;
 		populations[cityInd++] = 203201;
 		populations[cityInd++] = 203254;
-		/*populations[cityInd++] = 203264;
+		populations[cityInd++] = 203264;
 		populations[cityInd++] = 203488;
 		populations[cityInd++] = 203499;
 		populations[cityInd++] = 203533;
@@ -6349,7 +6349,7 @@ size_t* getPopulationsSorted() {
 		populations[cityInd++] = 12294193;
 		populations[cityInd++] = 12691836;
 		populations[cityInd++] = 13076300;
-		populations[cityInd++] = 22315474;*/
+		populations[cityInd++] = 22315474;
 	}
 
 	return populations;
