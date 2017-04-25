@@ -24,8 +24,8 @@ namespace LearningSystem.Tests
         private const string ServiceAssemblyName = "LearningSystem.Services";
 
         private const string ContextInterfaceName = "ILearningSystemContext";
-        private const string ControllerName = "Users";
-        private const string ActionNameToTest = "Profile";
+        private const string ControllerName = "Courses";
+        private const string ActionNameToTest = "Details";
         private const string AutomapperConfig = "AutomapperConfig";
 
 
@@ -118,10 +118,10 @@ namespace LearningSystem.Tests
                 .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
             mockCourseSet.Setup(m => m.Find(It.IsAny<object[]>()))
-            .Returns<object[]>(ids => courseData.FirstOrDefault(c => c.Id == (int)ids[0]));
+                .Returns<object[]>(ids => courseData.FirstOrDefault(c => c.Id == (int)ids[0]));
 
             mockStudentSet.Setup(m => m.Find(It.IsAny<object[]>()))
-            .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
+                .Returns<object[]>(ids => studentData.FirstOrDefault(d => d.Id == (int)ids[0]));
 
 
             Type automapperType = assembly.GetTypes().FirstOrDefault(t => t.Name == AutomapperConfig);
@@ -161,7 +161,8 @@ namespace LearningSystem.Tests
             httpBaseProperty.SetValue(controller, controllerContext);
 
             MethodInfo methodToTest = null;
-            var methods = controller.GetType().GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var methods =
+                controller.GetType().GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
             foreach (var methodInfo in methods)
             {
                 if (methodInfo.Name == ActionNameToTest)
@@ -185,65 +186,113 @@ namespace LearningSystem.Tests
                     break;
                 }
             }
+            object modelToTest = studentData[0];
+
+            int param = 3;
             HashSet<PropertyInfo> matchedPinfos = new HashSet<PropertyInfo>();
-            ViewResult result = methodToTest.Invoke(controller, new object[] { }) as ViewResult;
-            object model = result.Model;
-            PropertyInfo[] propertiesOfViewResultModel = model.GetType().GetProperties();
-            PropertyInfo[] propertiesOfModel = appUserData[0]
-                .GetType()
-                .GetProperties().Where(p =>
-                                    p.Name == "Name" || p.Name == "BirthDate")
-                                    .ToArray();
+            ActionResult result = methodToTest.Invoke(controller, new object[] { param }) as ActionResult;
+            return;
+            object model = result; 
+            Assert.IsNull(model);
+            if (typeof(IEnumerable).IsAssignableFrom(model.GetType()))
+            {
+                model = (model as IEnumerable<object>).ToArray();
+            }
+            PropertyInfo[] propertiesOfViewResultModel = model.GetType()
+                .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
             Dictionary<object, List<PropertyInfo>> propertiesOfViewModel = new Dictionary<object, List<PropertyInfo>>();
-            propertiesOfViewModel = RetrieveProperties(model, propertiesOfViewResultModel, propertiesOfViewModel);
+            propertiesOfViewModel = RetrieveProperties(propertiesOfViewModel, model);
 
-            Dictionary<object, List<PropertyInfo>> propertiesOfActualModel = new Dictionary<object, List<PropertyInfo>>();
-            propertiesOfActualModel = RetrieveProperties((object)studentData[0], propertiesOfModel,
-                propertiesOfActualModel);
+            Dictionary<object, List<PropertyInfo>> propertiesOfActualModel =
+                new Dictionary<object, List<PropertyInfo>>();
+            propertiesOfActualModel = RetrieveProperties(propertiesOfActualModel, modelToTest);
+            int count = 0;
 
+            foreach (var objectInActualModel in propertiesOfActualModel.Keys)
+            {
+                foreach (PropertyInfo propertyOfModel in propertiesOfActualModel[objectInActualModel])
+                {
+                    object propertyValue = propertyOfModel.GetValue(objectInActualModel);
+                    foreach (var objectInViewModel in propertiesOfViewModel.Keys)
+                    {
+                        bool matched = false;
+                        List<PropertyInfo> propertiesOfObjectInViewModel = propertiesOfViewModel[objectInViewModel]
+                            .Where(p => !matchedPinfos.Contains(p))
+                            .ToList();
+                        foreach (PropertyInfo propertyOfViewModel in propertiesOfObjectInViewModel)
+                        {
+                            object viewModelPropertyValue = propertyOfViewModel.GetValue(objectInViewModel);
+                            if (propertyOfViewModel.PropertyType == propertyOfModel.PropertyType
+                                && viewModelPropertyValue.Equals(propertyValue))
+                            {
+                                count++;
+                                matched = true;
+                                matchedPinfos.Add(propertyOfViewModel);
+                                break;
+                            }
+                        }
+                        if (matched)
+                        {
+                            matched = false;
+                            break;
+                        }
+                    }
+                }
+            }
 
+            int totalProperties = propertiesOfViewModel.Values.SelectMany(x => x).Count();
+            bool matches = count >= totalProperties;
+            Assert.IsTrue(matches);
         }
 
-        private Dictionary<object, List<PropertyInfo>> RetrieveProperties(object model,
-            PropertyInfo[] properties,
-            Dictionary<object, List<PropertyInfo>> retrievedProperties)
+        private Dictionary<object, List<PropertyInfo>> RetrieveProperties(
+            Dictionary<object, List<PropertyInfo>> retrievedProperties,
+            params object[] models)
         {
-
-            foreach (var propertyInfo in properties)
+            foreach (var model in models)
             {
-                if (propertyInfo.PropertyType.GetInterface("IEnumerable") != null
-                    && propertyInfo.PropertyType.Name.ToLower() != "string"
-                    && propertyInfo.PropertyType.Name.ToLower() != "datetime"
-                    && !propertyInfo.PropertyType.GetGenericArguments()[0].IsPrimitive)
+                var modelProperties = model.GetType()
+                    .GetProperties();
+                foreach (var propertyInfo in modelProperties)
                 {
-                    var collectionOfModels = propertyInfo.GetValue(model) as IEnumerable;
-                    foreach (var newModel in collectionOfModels)
+                    if (propertyInfo.PropertyType.GetInterface("IEnumerable") != null
+                        && propertyInfo.PropertyType.Name.ToLower() != "string"
+                        && propertyInfo.PropertyType.Name.ToLower() != "datetime"
+                        && !propertyInfo.PropertyType.GetGenericArguments()[0].IsPrimitive)
                     {
-                        RetrieveProperties(newModel, newModel.GetType().GetProperties(), retrievedProperties);
-                    }
+                        var collectionOfModels = (propertyInfo.GetValue(model) as IEnumerable<object>).ToArray();
 
-                }
-                else if (!propertyInfo.PropertyType.IsPrimitive
-                         && propertyInfo.PropertyType.Name.ToLower() != "string"
-                         && propertyInfo.PropertyType.Name.ToLower() != "datetime")
-                {
-                    object innerObject = propertyInfo.GetValue(model);
-                    RetrieveProperties(innerObject, innerObject.GetType().GetProperties(), retrievedProperties);
-                }
-                else
-                {
-                    if (!retrievedProperties.ContainsKey(model))
+
+                        RetrieveProperties(retrievedProperties, collectionOfModels);
+
+                    }
+                    else if (!propertyInfo.PropertyType.IsPrimitive
+                             && propertyInfo.PropertyType.Name.ToLower() != "string"
+                             && propertyInfo.PropertyType.Name.ToLower() != "datetime")
                     {
-                        retrievedProperties.Add(model, new List<PropertyInfo>() { propertyInfo });
+
+                        object innerObject = propertyInfo.GetValue(model);
+                        if (innerObject != null && retrievedProperties.Keys.All(k => k.GetType() != innerObject.GetType()))
+                        {
+                            RetrieveProperties(retrievedProperties, innerObject);
+                        }
                     }
                     else
                     {
-                        retrievedProperties[model].Add(propertyInfo);
+                        if (!retrievedProperties.ContainsKey(model))
+                        {
+                            retrievedProperties.Add(model, new List<PropertyInfo>() { propertyInfo });
+                        }
+                        else
+                        {
+                            retrievedProperties[model].Add(propertyInfo);
+                        }
                     }
-                }
 
+                }
             }
+
             return retrievedProperties;
         }
 
