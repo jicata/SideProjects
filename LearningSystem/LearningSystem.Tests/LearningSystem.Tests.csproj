@@ -95,7 +95,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnrollUserTest.cs" />
+    <Compile Include="CourseDetailsTestHttpNotFound.cs" />
+    <Compile Include="CourseDetailsCorrectId.cs" />
+    <Compile Include="EnrollStudentTest.cs" />
+    <Compile Include="PostEditUserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

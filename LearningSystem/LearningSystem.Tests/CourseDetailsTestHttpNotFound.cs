@@ -18,7 +18,7 @@ using NUnit.Framework;
 namespace LearningSystem.Tests
 {
     [TestFixture]
-    public class EnrollUserTest
+    public class CourseDetailsTestHttpNotFound
     {
         private const string ControllerSuffix = "Controller";
         private const string ServiceAssemblyName = "LearningSystem.Services";
@@ -64,8 +64,8 @@ namespace LearningSystem.Tests
         public void TestEnrollUserWithValidUser()
         {
 
-            Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
-            //Assembly assembly = Assembly.GetExecutingAssembly();
+           // Assembly assembly = Assembly.LoadFrom(@"C:\SideAndTestProjects\LearningSystem\LearningSystem\bin\LearningSystem.Web.dll");
+            Assembly assembly = Assembly.GetExecutingAssembly();
 
 
             var appUserData = new List<ApplicationUser>
@@ -163,88 +163,76 @@ namespace LearningSystem.Tests
             MethodInfo methodToTest = null;
             var methods =
                 controller.GetType().GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+
+            bool route = false;
+            // if the action is not a POST action
+            // simply set "isPost = true"
+            bool isPost = true;
+
             foreach (var methodInfo in methods)
             {
-                if (methodInfo.Name == ActionNameToTest)
-                {
-                    methodToTest = methodInfo;
-                    break;
-                }
                 object[] attributes = methodInfo.GetCustomAttributes(true);
                 foreach (var attribute in attributes)
                 {
                     RouteAttribute routeAttribute = attribute as RouteAttribute;
 
-                    if (routeAttribute != null && routeAttribute.Name == ActionNameToTest)
+                    if ((routeAttribute != null && routeAttribute.Name == ActionNameToTest) || methodInfo.Name == ActionNameToTest)
                     {
-                        methodToTest = methodInfo;
-                        break;
+                        route = true;
                     }
+
+                    HttpPostAttribute httpMethodTypeAttribute = attribute as HttpPostAttribute;
+                    if (httpMethodTypeAttribute != null)
+                    {
+                        isPost = true;
+                    }
+
                 }
-                if (methodToTest != null)
+                if (isPost && route)
                 {
-                    break;
+                    methodToTest = methodInfo;
+                }
+                else
+                {
+                    isPost = false;
+                    route = false;
                 }
             }
             object modelToTest = studentData[0];
 
+
+            HashSet<PropertyInfo> matchedProperties = new HashSet<PropertyInfo>();
+
+            // https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx
+            // ViewResult
+            // PartialViewResult
+            // RedirectResult
+            // RedirectToRouteResult
+            // ContentResult
+            // JsonResult
+            // JavaScriptResult
+            // HttpStatusCodeResult
+            // HttUnauthorizedResult
+            // HttpNotFoundResult
+            // FileResult
+            // FileContentResult
+            // FilePathResult
+            // FileStreamResult
+            // EmptyResult
+
+            // thus cast the result of the action
+            // in accordance to the expected type of result
+            
             int param = 3;
-            HashSet<PropertyInfo> matchedPinfos = new HashSet<PropertyInfo>();
-            ActionResult result = methodToTest.Invoke(controller, new object[] { param }) as ActionResult;
-            return;
-            object model = result; 
-            Assert.IsNull(model);
-            if (typeof(IEnumerable).IsAssignableFrom(model.GetType()))
-            {
-                model = (model as IEnumerable<object>).ToArray();
-            }
-            PropertyInfo[] propertiesOfViewResultModel = model.GetType()
-                .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+           HttpNotFoundResult result = methodToTest.Invoke(controller, new object[] { param }) as HttpNotFoundResult;
 
-            Dictionary<object, List<PropertyInfo>> propertiesOfViewModel = new Dictionary<object, List<PropertyInfo>>();
-            propertiesOfViewModel = RetrieveProperties(propertiesOfViewModel, model);
+            
+            // throw in some assers to determine validity            
+            Assert.IsNotNull(result, "resultModel is null");
 
-            Dictionary<object, List<PropertyInfo>> propertiesOfActualModel =
-                new Dictionary<object, List<PropertyInfo>>();
-            propertiesOfActualModel = RetrieveProperties(propertiesOfActualModel, modelToTest);
-            int count = 0;
-
-            foreach (var objectInActualModel in propertiesOfActualModel.Keys)
-            {
-                foreach (PropertyInfo propertyOfModel in propertiesOfActualModel[objectInActualModel])
-                {
-                    object propertyValue = propertyOfModel.GetValue(objectInActualModel);
-                    foreach (var objectInViewModel in propertiesOfViewModel.Keys)
-                    {
-                        bool matched = false;
-                        List<PropertyInfo> propertiesOfObjectInViewModel = propertiesOfViewModel[objectInViewModel]
-                            .Where(p => !matchedPinfos.Contains(p))
-                            .ToList();
-                        foreach (PropertyInfo propertyOfViewModel in propertiesOfObjectInViewModel)
-                        {
-                            object viewModelPropertyValue = propertyOfViewModel.GetValue(objectInViewModel);
-                            if (propertyOfViewModel.PropertyType == propertyOfModel.PropertyType
-                                && viewModelPropertyValue.Equals(propertyValue))
-                            {
-                                count++;
-                                matched = true;
-                                matchedPinfos.Add(propertyOfViewModel);
-                                break;
-                            }
-                        }
-                        if (matched)
-                        {
-                            matched = false;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            int totalProperties = propertiesOfViewModel.Values.SelectMany(x => x).Count();
-            bool matches = count >= totalProperties;
-            Assert.IsTrue(matches);
         }
+
+
 
         private Dictionary<object, List<PropertyInfo>> RetrieveProperties(
             Dictionary<object, List<PropertyInfo>> retrievedProperties,
@@ -254,25 +242,23 @@ namespace LearningSystem.Tests
             {
                 var modelProperties = model.GetType()
                     .GetProperties();
-                foreach (var propertyInfo in modelProperties)
+                foreach (var modelProperty in modelProperties)
                 {
-                    if (propertyInfo.PropertyType.GetInterface("IEnumerable") != null
-                        && propertyInfo.PropertyType.Name.ToLower() != "string"
-                        && propertyInfo.PropertyType.Name.ToLower() != "datetime"
-                        && !propertyInfo.PropertyType.GetGenericArguments()[0].IsPrimitive)
+                    if (modelProperty.PropertyType.GetInterface("IEnumerable") != null
+                        && modelProperty.PropertyType.Name.ToLower() != "string"
+                        && modelProperty.PropertyType.Name.ToLower() != "datetime"
+                        && !modelProperty.PropertyType.GetGenericArguments()[0].IsPrimitive)
                     {
-                        var collectionOfModels = (propertyInfo.GetValue(model) as IEnumerable<object>).ToArray();
-
-
-                        RetrieveProperties(retrievedProperties, collectionOfModels);
+                        var innerCollectionOfModels = (modelProperty.GetValue(model) as IEnumerable<object>).ToArray();
+                        RetrieveProperties(retrievedProperties, innerCollectionOfModels);
 
                     }
-                    else if (!propertyInfo.PropertyType.IsPrimitive
-                             && propertyInfo.PropertyType.Name.ToLower() != "string"
-                             && propertyInfo.PropertyType.Name.ToLower() != "datetime")
+                    else if (!modelProperty.PropertyType.IsPrimitive
+                             && modelProperty.PropertyType.Name.ToLower() != "string"
+                             && modelProperty.PropertyType.Name.ToLower() != "datetime")
                     {
 
-                        object innerObject = propertyInfo.GetValue(model);
+                        object innerObject = modelProperty.GetValue(model);
                         if (innerObject != null && retrievedProperties.Keys.All(k => k.GetType() != innerObject.GetType()))
                         {
                             RetrieveProperties(retrievedProperties, innerObject);
@@ -282,11 +268,11 @@ namespace LearningSystem.Tests
                     {
                         if (!retrievedProperties.ContainsKey(model))
                         {
-                            retrievedProperties.Add(model, new List<PropertyInfo>() { propertyInfo });
+                            retrievedProperties.Add(model, new List<PropertyInfo>() { modelProperty });
                         }
                         else
                         {
-                            retrievedProperties[model].Add(propertyInfo);
+                            retrievedProperties[model].Add(modelProperty);
                         }
                     }
 
