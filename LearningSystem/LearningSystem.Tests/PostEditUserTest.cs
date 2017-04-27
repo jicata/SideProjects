@@ -167,6 +167,7 @@ namespace LearningSystem.Tests
                 controller.GetType().GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
 
             MethodInfo methodToTest = ExtractActionForTesting(methods);
+            Assert.IsNotNull(methodToTest,"method to test is null");
 
             // https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx
             // ViewResult
@@ -191,11 +192,18 @@ namespace LearningSystem.Tests
 
 
             var actionParams = methodToTest.GetParameters();
+            List<object> actionArguments = new List<object>();
+            foreach (ParameterInfo actionParameter in actionParams)
+            {
+                object activatedArgument = Activator.CreateInstance(actionParameter.ParameterType);
+                actionArguments.Add(activatedArgument);
+            }
+           
             
 
             var modelBinder = new ModelBindingContext()
             {
-                ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(() => model, model.GetType()),
+                ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(() => actionArguments[0], actionArguments[0].GetType()),
                 ValueProvider = new NameValueCollectionValueProvider(new NameValueCollection(), CultureInfo.InvariantCulture)
             };
             var binder = new DefaultModelBinder().BindModel(controllerContext, modelBinder);
@@ -204,7 +212,7 @@ namespace LearningSystem.Tests
 
             HashSet<PropertyInfo> matchedProperties = new HashSet<PropertyInfo>();
 
-            RedirectToRouteResult result = methodToTest.Invoke(controller, new object[] { model }) as RedirectToRouteResult;
+            RedirectToRouteResult result = methodToTest.Invoke(controller, actionArguments.ToArray()) as RedirectToRouteResult;
 
 
             // throw in some assers to determine validity            
