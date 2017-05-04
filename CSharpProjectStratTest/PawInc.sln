@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawInc", "PawInc.csproj", "{2E5D3C23-92DF-45A7-AEB2-511673DC65FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProj", "..\TestProj\TestProj.csproj", "{20D8BD43-FBBD-4BAA-9356-997F9E13701D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularQueue.Tests", "..\CircularQueue\CircularQueue.Tests.csproj", "{D852AD35-E7FC-499B-A913-11479BB76674}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2E5D3C23-92DF-45A7-AEB2-511673DC65FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E5D3C23-92DF-45A7-AEB2-511673DC65FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E5D3C23-92DF-45A7-AEB2-511673DC65FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D8BD43-FBBD-4BAA-9356-997F9E13701D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D8BD43-FBBD-4BAA-9356-997F9E13701D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D8BD43-FBBD-4BAA-9356-997F9E13701D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D8BD43-FBBD-4BAA-9356-997F9E13701D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D852AD35-E7FC-499B-A913-11479BB76674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D852AD35-E7FC-499B-A913-11479BB76674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D852AD35-E7FC-499B-A913-11479BB76674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D852AD35-E7FC-499B-A913-11479BB76674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
