@@ -9,20 +9,31 @@ namespace TestApp
 {
     class Program
     {
-        private const string FileNameAndTypeIndicatorPattern = @"##(\w+\.(cpp|h))##";
+        private const string FileNameAndTypeIndicatorPattern = @"(@PropertySources?\((?:.*?)\))";
         static void Main(string[] args)
         {
 
+            string applicationProps = @"C:\SideAndTestProjects\JavaORM\application.properties";
+            string zipPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops.zip";
+            using (var zip = new ZipFile(zipPath))
+            {
+                var entries = zip.EntryFileNames;
+                string resourceDirectory = entries.FirstOrDefault(e => e.EndsWith("main.java"));
+                zip.Entries.FirstOrDefault(f => f.FileName.EndsWith("main.java")).Extract();
+                string notfile =
+                    Directory.EnumerateFiles(Environment.CurrentDirectory, "main.java", SearchOption.AllDirectories)
+                        .FirstOrDefault();
+                string mainContents = File.ReadAllText(notfile);
+                Regex rgx = new Regex(FileNameAndTypeIndicatorPattern);
+                MatchCollection matches = rgx.Matches(mainContents);
 
-            var testResultsRegex = new Regex(@"Test Count: (\d+), Passed: (\d+), Failed: (\d+), Warnings: \d+, Inconclusive: \d+, Skipped: \d+");
-            string receivedOutput = @"Test Count: 2, Passed: 1, Failed: 1, Warnings: 0, Inconclusive: 0, Skipped: 0" +
-                               Environment.NewLine +
-                               "Test Count: 2222, Passed: 1, Failed: 1, Warnings: 0, Inconclusive: 0, Skipped: 0";
-            var res = testResultsRegex.Matches(receivedOutput);            
-            int totalTests = int.Parse(res[res.Count - 1].Groups[1].Value);
-            int  passedTests = int.Parse(res[res.Count - 1].Groups[2].Value);
-            Console.WriteLine($"total { totalTests}");
-            Console.WriteLine($"passed {passedTests}");
+                IEnumerable<string> paths = entries
+                     .Where(x => !x.EndsWith("/") && x.EndsWith("java"))
+                     .Select(x => x.Contains("main/java") ? x.Substring(x.LastIndexOf("main/java", StringComparison.Ordinal)+"main.java".Length+1) : x)
+                     .Select(x => x.Contains(".") ? x.Substring(0, x.LastIndexOf(".", StringComparison.Ordinal)) : x)                    
+                     .Select(x => x.Replace("/", "."));
+                zip.Save();
+            }
             return;
             string path = @"C:\SideAndTestProjects\testFile.txt";
             string delimiter = $@"~~!!!==#==!!!~~{Environment.NewLine}";
