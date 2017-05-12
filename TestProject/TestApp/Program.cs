@@ -18,8 +18,8 @@ namespace TestApp
             using (var zip = new ZipFile(zipPath))
             {
                 var entries = zip.EntryFileNames;
-                string resourceDirectory = entries.FirstOrDefault(e => e.EndsWith("main.java"));
-                zip.Entries.FirstOrDefault(f => f.FileName.EndsWith("main.java")).Extract();
+                string resourceDirectory = entries.Where(e => e.EndsWith("/test/")).OrderByDescending(s=>s.Length).FirstOrDefault();
+               // zip.Entries.FirstOrDefault(f => f.FileName.EndsWith("main.java")).Extract();
                 string notfile =
                     Directory.EnumerateFiles(Environment.CurrentDirectory, "main.java", SearchOption.AllDirectories)
                         .FirstOrDefault();
@@ -27,11 +27,14 @@ namespace TestApp
                 Regex rgx = new Regex(FileNameAndTypeIndicatorPattern);
                 MatchCollection matches = rgx.Matches(mainContents);
 
+                zip.UpdateItem(applicationProps,resourceDirectory);
                 IEnumerable<string> paths = entries
                      .Where(x => !x.EndsWith("/") && x.EndsWith("java"))
                      .Select(x => x.Contains("main/java") ? x.Substring(x.LastIndexOf("main/java", StringComparison.Ordinal)+"main.java".Length+1) : x)
                      .Select(x => x.Contains(".") ? x.Substring(0, x.LastIndexOf(".", StringComparison.Ordinal)) : x)                    
                      .Select(x => x.Replace("/", "."));
+
+
                 zip.Save();
             }
             return;

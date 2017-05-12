@@ -15,10 +15,10 @@ import javax.transaction.Transactional;
 public class LenServiceImpl implements LenService {
 
     @Autowired
-    private ModelParser modelParser;
+    public ModelParser modelParser;
 
     @Autowired
-    private LenRepository lenRepository;
+    public LenRepository lenRepository;
 
     @Override
     public void create(LenImportJSONDto lenDto) {

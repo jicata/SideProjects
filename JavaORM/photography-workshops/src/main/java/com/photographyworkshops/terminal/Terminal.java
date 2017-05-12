@@ -12,13 +12,14 @@ import com.photographyworkshops.domain.dto.photographers.PhotographersCameraExpo
 import com.photographyworkshops.domain.dto.workshops.WorkshopImportXMLDto;
 import com.photographyworkshops.domain.dto.workshops.WorkshopLocationsExportXMLDto;
 import com.photographyworkshops.domain.dto.workshops.WorkshopsImportXMLDto;
+import com.photographyworkshops.domain.entities.workshops.Workshop;
 import com.photographyworkshops.io.interfaces.ConsoleIO;
 import com.photographyworkshops.parser.interfaces.FileParser;
+import com.photographyworkshops.repository.LenRepository;
 import com.photographyworkshops.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -53,24 +54,25 @@ public class Terminal implements CommandLineRunner {
     private WorkshopService workshopService;
 
     @Autowired
-    public Environment env;
+    private LenRepository lenRepo;
 
     @Override
     public void run(String... strings) throws Exception {
 
-
-        System.out.println(photographerService.findAllOrder().size());
-        //Import
-        this.importLensFromJson();
-        this.importCamerasFromJson();
-        this.importPhotographersFromJson();
-        this.importAccesoriesFromXML();
-        this.importWorkshopsFromXML();
-        //Export
-        this.exportPhotographersToJSON();
-        this.exportPhotographersLandscapeToJSON();
-        this.exportPhotographersCamerasToXML();
-        this.exportWorkshopsToXML();
+//        System.out.println(lenRepo.count());
+//
+//        //Import
+//        this.importLensFromJson();
+//        this.importCamerasFromJson();
+//        this.importPhotographersFromJson();
+//        this.importAccesoriesFromXML();
+//        this.importWorkshopsFromXML();
+//        //Export
+//        this.exportPhotographersToJSON();
+//        this.exportPhotographersLandscapeToJSON();
+//        this.exportPhotographersCamerasToXML();
+//        this.exportWorkshopsToXML();
+//        System.out.println(lenRepo.count());
 
     }
 
