@@ -17,6 +17,7 @@ import com.photographyworkshops.io.interfaces.ConsoleIO;
 import com.photographyworkshops.parser.interfaces.FileParser;
 import com.photographyworkshops.repository.LenRepository;
 import com.photographyworkshops.service.*;
+import org.omg.CORBA.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -54,15 +55,19 @@ public class Terminal implements CommandLineRunner {
     private WorkshopService workshopService;
 
     @Autowired
-    private LenRepository lenRepo;
+    public LenRepository lenRepo;
 
+    @Autowired
+    org.springframework.core.env.Environment env;
     @Override
     public void run(String... strings) throws Exception {
 
-//        System.out.println(lenRepo.count());
+
+//
 //
 //        //Import
-//        this.importLensFromJson();
+          this.importLensFromJson();
+       // System.out.println(lenRepo.count());
 //        this.importCamerasFromJson();
 //        this.importPhotographersFromJson();
 //        this.importAccesoriesFromXML();
