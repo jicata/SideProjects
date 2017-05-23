@@ -1,18 +1,15 @@
 package com.photographyworkshops;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@Configuration
-@EnableAutoConfiguration
-public class main {
+@PropertySource("application.properties")
+public class Main {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(main.class).web(false).run(args);
+        //new SpringApplicationBuilder(Main.class).web(false).run(args);
+        SpringApplication.run(Main.class,args);
 
     }
 }
