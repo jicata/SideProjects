@@ -1,6 +1,5 @@
 package com.photographyworkshops.terminal;
 
-
 import com.photographyworkshops.config.Config;
 import com.photographyworkshops.domain.dto.accessoaries.AccessoriesImportXMLDto;
 import com.photographyworkshops.domain.dto.accessoaries.AccessoryImportXMLDto;
@@ -16,21 +15,16 @@ import com.photographyworkshops.domain.dto.workshops.WorkshopsImportXMLDto;
 import com.photographyworkshops.domain.entities.workshops.Workshop;
 import com.photographyworkshops.io.interfaces.ConsoleIO;
 import com.photographyworkshops.parser.interfaces.FileParser;
-import com.photographyworkshops.repository.LenRepository;
 import com.photographyworkshops.service.*;
-import org.omg.CORBA.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class Terminal implements CommandLineRunner {
-
 
     @Autowired
     @Qualifier(value = "JSONParser")
@@ -58,18 +52,10 @@ public class Terminal implements CommandLineRunner {
     @Autowired
     private WorkshopService workshopService;
 
-    @Autowired
-    public LenRepository lenRepo;
-
-    @Autowired
-    org.springframework.core.env.Environment env;
     @Override
     public void run(String... strings) throws Exception {
-
-
-
+        //Import
         this.importLensFromJson();
-
         this.importCamerasFromJson();
         this.importPhotographersFromJson();
         this.importAccesoriesFromXML();
@@ -79,8 +65,6 @@ public class Terminal implements CommandLineRunner {
         this.exportPhotographersLandscapeToJSON();
         this.exportPhotographersCamerasToXML();
         this.exportWorkshopsToXML();
-        System.out.println(lenRepo.count());
-
     }
 
     private void importLensFromJson() {

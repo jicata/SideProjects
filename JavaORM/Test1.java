@@ -1,31 +1,31 @@
 package com.photographyworkshops;
 
+import com.photographyworkshops.domain.entities.lens.Lens;
+import com.photographyworkshops.repository.LenRepository;
+
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@PropertySource("classpath:application.properties")
 public class Test1 {
 
+    @Autowired
+    LenRepository lenRepository;
 
     @Test
-    public void test() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
-
-//        Class neccessaryClass = Classes.allClasses.get("LenServiceImpl");
-//        Assert.assertTrue(neccessaryClass.getDeclaredFields().length > 0);
-
-        Assert.assertTrue(true);
+    public void test() throws Exception {
+   // lenRepository.save(new Lens());
+    Assert.assertEquals(true,lenRepository.findAll().iterator().hasNext());
     }
 
 }
