@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<locations>
+    <location name="Sofia">
+        <workshops>
+            <workshop name="Street Photography" total-profit="280.0">
+                <participants count="5">
+                    <participant>Lyle Longworth</participant>
+                    <participant>Amparo Goers</participant>
+                    <participant>Bunny Nolan</participant>
+                    <participant>Leon Recio</participant>
+                    <participant>Alica Lacher</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="Europe">
+        <workshops>
+            <workshop name="Norway's Trains and Fjords" total-profit="2240.0">
+                <participants count="7">
+                    <participant>Johnathan Vazguez</participant>
+                    <participant>Adria Mcquire</participant>
+                    <participant>Romona Griffin</participant>
+                    <participant>Rita Bucklew</participant>
+                    <participant>Antonietta Reza</participant>
+                    <participant>Cheri Regina</participant>
+                    <participant>Tashia Lunsford</participant>
+                </participants>
+            </workshop>
+            <workshop name="Nordic Passages: Shetlands, Orkneys, Faroes, and Iceland" total-profit="1593.6000000000001">
+                <participants count="6">
+                    <participant>Shannon Clendenin</participant>
+                    <participant>China Horsey</participant>
+                    <participant>Federico Arceo</participant>
+                    <participant>Lucina Jesse</participant>
+                    <participant>Heide Plemmons</participant>
+                    <participant>Aimee Ochoa</participant>
+                </participants>
+            </workshop>
+            <workshop name="Norway's Fjords and Arctic Svalbard" total-profit="2246.4">
+                <participants count="9">
+                    <participant>Melodee Shepler</participant>
+                    <participant>Jamie Mauger</participant>
+                    <participant>Deetta Beausoleil</participant>
+                    <participant>Opal Blue</participant>
+                    <participant>Meggan Danzy</participant>
+                    <participant>Joshua Nolley</participant>
+                    <participant>Stephaine Smidt</participant>
+                    <participant>Antonietta Reza</participant>
+                    <participant>Stephnie Arciniega</participant>
+                </participants>
+            </workshop>
+            <workshop name="Greek Isles" total-profit="2979.2000000000003">
+                <participants count="7">
+                    <participant>Lajuana Mcclean</participant>
+                    <participant>Carolee Kuder</participant>
+                    <participant>Dante Ketter</participant>
+                    <participant>Gaston Mclees</participant>
+                    <participant>Freeda Casimir</participant>
+                    <participant>Rosalba Hane</participant>
+                    <participant>Jenna Baize</participant>
+                </participants>
+            </workshop>
+            <workshop name="Scotland's Highlands and Islands" total-profit="3235.2000000000003">
+                <participants count="6">
+                    <participant>Annabelle Nimmo</participant>
+                    <participant>Krystin Lindstedt</participant>
+                    <participant>Freeman Dalby</participant>
+                    <participant>Shiloh Heckert</participant>
+                    <participant>Mckenzie Monteiro</participant>
+                    <participant>Antonietta Reza</participant>
+                </participants>
+            </workshop>
+            <workshop name="Scandinavia by Sea: Denmark, Sweden, and Norway" total-profit="244.8">
+                <participants count="9">
+                    <participant>Talitha Jong</participant>
+                    <participant>Dani Vanness</participant>
+                    <participant>Tu Aslinger</participant>
+                    <participant>Joane Claflin</participant>
+                    <participant>Danny Nethery</participant>
+                    <participant>Wilfredo Finnegan</participant>
+                    <participant>Betsey Oconner</participant>
+                    <participant>Azucena Stclaire</participant>
+                    <participant>Allyson Gayman</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="Asia">
+        <workshops>
+            <workshop name="Trans-Siberian Rail Odyssey" total-profit="115200.0">
+                <participants count="8">
+                    <participant>Talitha Jong</participant>
+                    <participant>Luciano Brisker</participant>
+                    <participant>Tu Aslinger</participant>
+                    <participant>Joan Fife</participant>
+                    <participant>Wilfredo Finnegan</participant>
+                    <participant>Denisha Gatton</participant>
+                    <participant>Gena Gering</participant>
+                    <participant>Leontine Breitenbach</participant>
+                </participants>
+            </workshop>
+            <workshop name="India by Rail Photography Expedition" total-profit="35552.0">
+                <participants count="8">
+                    <participant>Margarita Sollers</participant>
+                    <participant>Benjamin Lindblad</participant>
+                    <participant>Helena Cahn</participant>
+                    <participant>Deetta Beausoleil</participant>
+                    <participant>Opal Blue</participant>
+                    <participant>Meggan Danzy</participant>
+                    <participant>Beverley Kirby</participant>
+                    <participant>Leota Eastep</participant>
+                </participants>
+            </workshop>
+            <workshop name="China Photography Expedition" total-profit="30748.0">
+                <participants count="5">
+                    <participant>Talitha Jong</participant>
+                    <participant>Dani Vanness</participant>
+                    <participant>Fidel Sato</participant>
+                    <participant>Tu Aslinger</participant>
+                    <participant>Azucena Stclaire</participant>
+                </participants>
+            </workshop>
+            <workshop name="Winter in Japan Photography Expedition" total-profit="23349.600000000002">
+                <participants count="9">
+                    <participant>Dinah Mckenney</participant>
+                    <participant>Johnathan Vazguez</participant>
+                    <participant>Ola Straw</participant>
+                    <participant>Adria Mcquire</participant>
+                    <participant>Romona Griffin</participant>
+                    <participant>Rita Bucklew</participant>
+                    <participant>Valery Pickens</participant>
+                    <participant>Cheri Regina</participant>
+                    <participant>Tashia Lunsford</participant>
+                </participants>
+            </workshop>
+            <workshop name="Vietnam and Cambodia: Along the Mekong River" total-profit="1540.8000000000002">
+                <participants count="6">
+                    <participant>Romona Griffin</participant>
+                    <participant>Luciano Brisker</participant>
+                    <participant>Joan Fife</participant>
+                    <participant>Denisha Gatton</participant>
+                    <participant>Valery Pickens</participant>
+                    <participant>Leontine Breitenbach</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="North America">
+        <workshops>
+            <workshop name="Canadian Rockies by Rail and Trail" total-profit="20697.600000000002">
+                <participants count="6">
+                    <participant>Lajuana Mcclean</participant>
+                    <participant>Melodee Shepler</participant>
+                    <participant>Dante Ketter</participant>
+                    <participant>Gaston Mclees</participant>
+                    <participant>Freeda Casimir</participant>
+                    <participant>Rosalba Hane</participant>
+                </participants>
+            </workshop>
+            <workshop name="San Francisco Weekend Photo Workshop" total-profit="1108.8">
+                <participants count="6">
+                    <participant>Melodee Shepler</participant>
+                    <participant>Dante Ketter</participant>
+                    <participant>Gaston Mclees</participant>
+                    <participant>Freeda Casimir</participant>
+                    <participant>Rosalba Hane</participant>
+                    <participant>Stephnie Arciniega</participant>
+                </participants>
+            </workshop>
+            <workshop name="Weekend Photo Workshop: Austin" total-profit="110.4">
+                <participants count="6">
+                    <participant>Lajuana Mcclean</participant>
+                    <participant>Carolee Kuder</participant>
+                    <participant>Annabelle Nimmo</participant>
+                    <participant>Freeman Dalby</participant>
+                    <participant>Mckenzie Monteiro</participant>
+                    <participant>Jenna Baize</participant>
+                </participants>
+            </workshop>
+            <workshop name="Winter in Yellowstone Photography Expedition" total-profit="1166.4">
+                <participants count="6">
+                    <participant>Rosalie Ragsdale</participant>
+                    <participant>Freeda Casimir</participant>
+                    <participant>Harley Gerardo</participant>
+                    <participant>Jamie Mauger</participant>
+                    <participant>Beula Zendejas</participant>
+                    <participant>Opal Blue</participant>
+                </participants>
+            </workshop>
+            <workshop name="Alaska Family Voyage" total-profit="5769.6">
+                <participants count="6">
+                    <participant>Johnathan Vazguez</participant>
+                    <participant>Ola Straw</participant>
+                    <participant>Aurora Broadhurst</participant>
+                    <participant>Antonietta Reza</participant>
+                    <participant>Cheri Regina</participant>
+                    <participant>Tashia Lunsford</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="Africa">
+        <workshops>
+            <workshop name="Morocco Photography Expedition" total-profit="31341.600000000002">
+                <participants count="9">
+                    <participant>Rosalie Ragsdale</participant>
+                    <participant>Ralph Rizer</participant>
+                    <participant>Krystin Lindstedt</participant>
+                    <participant>Jay Stanforth</participant>
+                    <participant>Harley Gerardo</participant>
+                    <participant>Freeman Dalby</participant>
+                    <participant>Shiloh Heckert</participant>
+                    <participant>Oma Wechsler</participant>
+                    <participant>Beula Zendejas</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="Caribbean">
+        <workshops>
+            <workshop name="Advanced Photography and Lighting Workshop: Saint Lucia" total-profit="30979.2">
+                <participants count="6">
+                    <participant>Nam Dinkins</participant>
+                    <participant>Cristopher Brinkerhoff</participant>
+                    <participant>Sharee Rothchild</participant>
+                    <participant>Shon Bjerke</participant>
+                    <participant>Kirstin Whidbee</participant>
+                    <participant>Keely Futrell</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="Cuba">
+        <workshops>
+            <workshop name="Cuba by Land and Sea: Cultural Heritage and Natural Wonders" total-profit="3902.4">
+                <participants count="9">
+                    <participant>Shannon Clendenin</participant>
+                    <participant>Romona Kumm</participant>
+                    <participant>Federico Arceo</participant>
+                    <participant>Margarita Sollers</participant>
+                    <participant>Lucina Jesse</participant>
+                    <participant>Heide Plemmons</participant>
+                    <participant>Gena Gering</participant>
+                    <participant>Beverley Kirby</participant>
+                    <participant>Leota Eastep</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="South America">
+        <workshops>
+            <workshop name="Epic Galapagos Photography Expedition" total-profit="26548.800000000003">
+                <participants count="6">
+                    <participant>Joane Claflin</participant>
+                    <participant>Betsey Oconner</participant>
+                    <participant>Allyson Gayman</participant>
+                    <participant>Aurora Broadhurst</participant>
+                    <participant>Antonietta Reza</participant>
+                    <participant>Cheri Regina</participant>
+                </participants>
+            </workshop>
+            <workshop name="Galapagos Photo Expedition" total-profit="318340.80000000005">
+                <participants count="6">
+                    <participant>Dinah Mckenney</participant>
+                    <participant>Johnathan Vazguez</participant>
+                    <participant>Ola Straw</participant>
+                    <participant>Adria Mcquire</participant>
+                    <participant>Rita Bucklew</participant>
+                    <participant>Tashia Lunsford</participant>
+                </participants>
+            </workshop>
+            <workshop name="Reefs and Ruins: Belize to Tikal, Guatemala" total-profit="1108.8">
+                <participants count="6">
+                    <participant>Nam Dinkins</participant>
+                    <participant>Cristopher Brinkerhoff</participant>
+                    <participant>Sharee Rothchild</participant>
+                    <participant>Shon Bjerke</participant>
+                    <participant>Kirstin Whidbee</participant>
+                    <participant>Keely Futrell</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+    <location name="North Pole">
+        <workshops>
+            <workshop name="Land of the Polar Bears" total-profit="590.4">
+                <participants count="6">
+                    <participant>Romona Kumm</participant>
+                    <participant>Margarita Sollers</participant>
+                    <participant>Benjamin Lindblad</participant>
+                    <participant>Gena Gering</participant>
+                    <participant>Beverley Kirby</participant>
+                    <participant>Leota Eastep</participant>
+                </participants>
+            </workshop>
+            <workshop name="Svalbard, Iceland, and Greenland's East Coast" total-profit="24203.2">
+                <participants count="7">
+                    <participant>Rosalie Ragsdale</participant>
+                    <participant>Ralph Rizer</participant>
+                    <participant>Jay Stanforth</participant>
+                    <participant>Harley Gerardo</participant>
+                    <participant>Fidel Sato</participant>
+                    <participant>Oma Wechsler</participant>
+                    <participant>Beula Zendejas</participant>
+                </participants>
+            </workshop>
+            <workshop name="Epic 80N" total-profit="85920.0">
+                <participants count="6">
+                    <participant>Dinah Mckenney</participant>
+                    <participant>Adria Mcquire</participant>
+                    <participant>Romona Griffin</participant>
+                    <participant>Luciano Brisker</participant>
+                    <participant>Rita Bucklew</participant>
+                    <participant>Valery Pickens</participant>
+                </participants>
+            </workshop>
+            <workshop name="Exploring Greenland and the Canadian High Arctic" total-profit="1651.2">
+                <participants count="6">
+                    <participant>Sharee Rothchild</participant>
+                    <participant>Denisha Gatton</participant>
+                    <participant>Shon Bjerke</participant>
+                    <participant>Kirstin Whidbee</participant>
+                    <participant>Gena Gering</participant>
+                    <participant>Keely Futrell</participant>
+                </participants>
+            </workshop>
+        </workshops>
+    </location>
+</locations>

@@ -7,34 +7,39 @@ using Ionic.Zip;
 
 namespace TestApp
 {
+    using System.Xml;
+    using System.Xml.Linq;
+
     class Program
     {
         private const string FileNameAndTypeIndicatorPattern = @"(@PropertySources?\((?:.*?)\))";
+        protected const string PropertiesNodePath = @"//pomns:properties/pomns:start-class";
+        protected const string StartClassNodePath = @"//pomns:start-class";
         static void Main(string[] args)
         {
+            string pomXmlPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops\pom.xml";
+            string pomXmlNamepace = @"http://maven.apache.org/POM/4.0.0";
 
-            string applicationProps = @"C:\SideAndTestProjects\JavaORM\application.properties";
-            string zipPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops.zip";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(pomXmlPath);
+
+            XmlNamespaceManager namespaceManager = new XmlNamespaceManager(doc.NameTable);
+            namespaceManager.AddNamespace("pomns", pomXmlNamepace);
+
+            XmlNode rootNode = doc.DocumentElement;
+            var nuGetTargetNode = rootNode.SelectSingleNode(PropertiesNodePath, namespaceManager);          
+            Console.WriteLine(nuGetTargetNode.InnerText.Trim());
+            //   var packageName = doc.Root.Element("properties").Element("start-class").Value;
+
+
+   
+            string zipPath = @"D:\_$submission";
+            string fileToInsert = @"D:\OjsFiles\ipr.reg";
+            string pathInside = @"src/main/test/com/photographyworkshops/";
             using (var zip = new ZipFile(zipPath))
             {
-                var entries = zip.EntryFileNames;
-                string resourceDirectory = entries.Where(e => e.EndsWith("/test/")).OrderByDescending(s=>s.Length).FirstOrDefault();
-               // zip.Entries.FirstOrDefault(f => f.FileName.EndsWith("main.java")).Extract();
-                string notfile =
-                    Directory.EnumerateFiles(Environment.CurrentDirectory, "main.java", SearchOption.AllDirectories)
-                        .FirstOrDefault();
-                string mainContents = File.ReadAllText(notfile);
-                Regex rgx = new Regex(FileNameAndTypeIndicatorPattern);
-                MatchCollection matches = rgx.Matches(mainContents);
-
-                zip.UpdateItem(applicationProps,resourceDirectory);
-                IEnumerable<string> paths = entries
-                     .Where(x => !x.EndsWith("/") && x.EndsWith("java"))
-                     .Select(x => x.Contains("main/java") ? x.Substring(x.LastIndexOf("main/java", StringComparison.Ordinal)+"main.java".Length+1) : x)
-                     .Select(x => x.Contains(".") ? x.Substring(0, x.LastIndexOf(".", StringComparison.Ordinal)) : x)                    
-                     .Select(x => x.Replace("/", "."));
-
-
+                zip.UpdateFile(fileToInsert, pathInside);
                 zip.Save();
             }
             return;

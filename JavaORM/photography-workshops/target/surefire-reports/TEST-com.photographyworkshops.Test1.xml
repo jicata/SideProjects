@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.photographyworkshops.Test1" time="0.075" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\bin"/>
+    <property name="java.vm.version" value="25.131-b11"/>
+    <property name="user.country.format" value="BG"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="com.photographyworkshops.Test1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\"/>
+    <property name="java.runtime.version" value="1.8.0_131-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Maven\apache-maven-3.5.0\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_131\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\nodejs\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Maven\apache-maven-3.5.0\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\spring-1.3.0.M1\\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;."/>
+    <property name="maven.conf" value="C:\Maven\apache-maven-3.5.0\bin\../conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Maven\apache-maven-3.5.0\bin\..\lib\jansi-native\windows32"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
+    <property name="user.timezone" value="Europe/Helsinki"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="java.class.path" value="C:\Maven\apache-maven-3.5.0\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f C:\SideAndTestProjects\JavaORM\photography-workshops\pom.xml clean test -Dtest=com.photographyworkshops.Test1"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="user.language.format" value="bg"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_131"/>
+    <property name="java.ext.dirs" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_131\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp866"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Maven\apache-maven-3.5.0\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp866"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase name="test" classname="com.photographyworkshops.Test1" time="0.075">
+    <failure message="expected:&lt;false&gt; but was:&lt;true&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<false> but was:<true>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.photographyworkshops.Test1.test(Test1.java:28)
+]]></failure>
+    <system-out><![CDATA[17:59:12.584 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.photographyworkshops.Test1]
+17:59:12.599 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:59:12.608 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:59:12.629 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.photographyworkshops.Test1] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:59:12.662 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.photographyworkshops.Test1], using SpringBootContextLoader
+17:59:12.666 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.photographyworkshops.Test1]: class path resource [com/photographyworkshops/Test1-context.xml] does not exist
+17:59:12.667 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.photographyworkshops.Test1]: class path resource [com/photographyworkshops/Test1Context.groovy] does not exist
+17:59:12.667 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.photographyworkshops.Test1]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:59:12.668 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.photographyworkshops.Test1]: Test1 does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:59:12.719 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.photographyworkshops.Test1]
+17:59:12.728 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:59:12.729 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:59:12.729 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:59:12.764 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/photographyworkshops/] to resources [URL [file:/C:/SideAndTestProjects/JavaORM/photography-workshops/target/test-classes/com/photographyworkshops/], URL [file:/C:/SideAndTestProjects/JavaORM/photography-workshops/target/classes/com/photographyworkshops/]]
+17:59:12.764 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\SideAndTestProjects\JavaORM\photography-workshops\target\test-classes\com\photographyworkshops]
+17:59:12.764 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\SideAndTestProjects\JavaORM\photography-workshops\target\test-classes\com\photographyworkshops] for files matching pattern [C:/SideAndTestProjects/JavaORM/photography-workshops/target/test-classes/com/photographyworkshops/*.class]
+17:59:12.767 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [C:\SideAndTestProjects\JavaORM\photography-workshops\target\classes\com\photographyworkshops]
+17:59:12.767 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [C:\SideAndTestProjects\JavaORM\photography-workshops\target\classes\com\photographyworkshops] for files matching pattern [C:/SideAndTestProjects/JavaORM/photography-workshops/target/classes/com/photographyworkshops/*.class]
+17:59:12.769 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/photographyworkshops/*.class] to resources [file [C:\SideAndTestProjects\JavaORM\photography-workshops\target\test-classes\com\photographyworkshops\Test1.class], file [C:\SideAndTestProjects\JavaORM\photography-workshops\target\classes\com\photographyworkshops\Main.class]]
+17:59:12.838 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\SideAndTestProjects\JavaORM\photography-workshops\target\classes\com\photographyworkshops\Main.class]
+17:59:12.839 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.photographyworkshops.Main for test class com.photographyworkshops.Test1
+17:59:12.841 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.photographyworkshops.Test1]: using defaults.
+17:59:12.846 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:59:12.867 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+17:59:12.868 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@14168b8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1d94634, org.springframework.test.context.support.DirtiesContextTestExecutionListener@a90037, org.springframework.test.context.transaction.TransactionalTestExecutionListener@294adb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@a9f84e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@130f889, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@188e820, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1490758, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1df177, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6fa74d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@f08448]
+17:59:12.891 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.photographyworkshops.Test1]
+17:59:12.891 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.photographyworkshops.Test1]
+17:59:12.894 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.photographyworkshops.Test1]
+17:59:12.895 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:59:12.895 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:59:12.895 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.photographyworkshops.Test1] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:59:12.896 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.photographyworkshops.Test1], using SpringBootContextLoader
+17:59:12.897 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.photographyworkshops.Test1]: class path resource [com/photographyworkshops/Test1-context.xml] does not exist
+17:59:12.897 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.photographyworkshops.Test1]: class path resource [com/photographyworkshops/Test1Context.groovy] does not exist
+17:59:12.897 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.photographyworkshops.Test1]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:59:12.898 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.photographyworkshops.Test1]: Test1 does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:59:12.905 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.photographyworkshops.Test1]
+17:59:12.905 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:59:12.905 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:59:12.905 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:59:12.905 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.photographyworkshops.Main for test class com.photographyworkshops.Test1
+17:59:12.908 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.photographyworkshops.Test1]: using defaults.
+17:59:12.916 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:59:12.919 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+17:59:12.919 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2bd765, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a5fd2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@a2da20, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1d3b207, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@11bdc27, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@18fdd99, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@11274d2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1c1a03d, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@b0b186, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1a8d91c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@164985f]
+17:59:12.919 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.photographyworkshops.Test1]
+17:59:12.919 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.photographyworkshops.Test1]
+17:59:12.920 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.photographyworkshops.Test1]
+17:59:12.920 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.photographyworkshops.Test1]
+17:59:12.925 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@50d156 testClass = Test1, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@61c7e3 testClass = Test1, locations = '{}', classes = '{class com.photographyworkshops.Main}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@9ba398, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1a5fe33, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e63ade], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+17:59:12.925 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.photographyworkshops.Test1]
+17:59:12.935 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.photographyworkshops.Test1]
+17:59:12.936 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@50d156 testClass = Test1, testInstance = com.photographyworkshops.Test1@1d92fe2, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@61c7e3 testClass = Test1, locations = '{}', classes = '{class com.photographyworkshops.Main}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.SpringBootTestContextCustomizer@9ba398, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1a5fe33, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@e63ade], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]].
+17:59:13.033 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:59:13.034 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:59:13.034 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:59:13.035 [main] DEBUG org.springframework.core.env.MutablePropertySources - Adding [inline] PropertySource with highest search precedence
+17:59:13.042 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+17:59:13.042 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.3.RELEASE)
+
+2017-05-26 17:59:13.402  INFO 19152 --- [           main] com.photographyworkshops.Test1           : Starting Test1 on DESKTOP-4PR6SE5 with PID 19152 (started by Administrator in C:\SideAndTestProjects\JavaORM\photography-workshops)
+2017-05-26 17:59:13.403  INFO 19152 --- [           main] com.photographyworkshops.Test1           : No active profile set, falling back to default profiles: default
+2017-05-26 17:59:13.441  INFO 19152 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@ccf40b: startup date [Fri May 26 17:59:13 EEST 2017]; root of context hierarchy
+2017-05-26 17:59:14.761  INFO 19152 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-05-26 17:59:14.780  INFO 19152 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-05-26 17:59:14.882  INFO 19152 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2017-05-26 17:59:14.884  INFO 19152 --- [           main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2017-05-26 17:59:14.886  INFO 19152 --- [           main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2017-05-26 17:59:14.935  INFO 19152 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-05-26 17:59:15.575  INFO 19152 --- [           main] hsqldb.db.HSQLDB5C43C70504.ENGINE        : checkpointClose start
+2017-05-26 17:59:15.576  INFO 19152 --- [           main] hsqldb.db.HSQLDB5C43C70504.ENGINE        : checkpointClose synched
+2017-05-26 17:59:15.589  INFO 19152 --- [           main] hsqldb.db.HSQLDB5C43C70504.ENGINE        : checkpointClose script done
+2017-05-26 17:59:15.623  INFO 19152 --- [           main] hsqldb.db.HSQLDB5C43C70504.ENGINE        : checkpointClose end
+2017-05-26 17:59:15.657  INFO 19152 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2017-05-26 17:59:16.515  INFO 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2017-05-26 17:59:16.523 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table accessories drop constraint FK16f8hfp02x9oobijn6h16rkup
+2017-05-26 17:59:16.523 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.ACCESSORIES
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table lenses drop constraint FKdengrqpvndep44wk9cvtpmgvr
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.LENSES
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table photographer drop constraint FK1rbweewdna3ylbv4l4qwh5rrt
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.PHOTOGRAPHER
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table photographer drop constraint FK6ff2qskxvvjm930w1o0ym70s4
+2017-05-26 17:59:16.524 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.PHOTOGRAPHER
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table workshop_photographers drop constraint FKh09t6b8uua71ylf9y5m0s9o4p
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.WORKSHOP_PHOTOGRAPHERS
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table workshop_photographers drop constraint FK63md8u0yyk4xf8cy321bya6b
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.WORKSHOP_PHOTOGRAPHERS
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000389: Unsuccessful: alter table workshops drop constraint FK230tuqop04j1yuhlpac69elpo
+2017-05-26 17:59:16.525 ERROR 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : user lacks privilege or object not found: PUBLIC.WORKSHOPS
+2017-05-26 17:59:16.539  INFO 19152 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2017-05-26 17:59:16.588  INFO 19152 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-05-26 17:59:16.977  INFO 19152 --- [           main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2017-05-26 17:59:17.089  WARN 19152 --- [           main] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+Successfully imported Canon 50mm f1,80
+Successfully imported Nikon 35mm f2,00
+Successfully imported Tamron 24mm f2,80
+Successfully imported Tokina 85mm f1,40
+Successfully imported Tokina 100mm f1,20
+Successfully imported Canon 8mm f1,20
+Successfully imported Canon 15mm f1,40
+Successfully imported Canon 8mm f2,00
+Successfully imported Canon 8mm f2,20
+Successfully imported Canon 8mm f2,80
+Successfully imported Canon 16mm f2,40
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 24mm f3,50
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 17mm f3,50
+Successfully imported Canon 18mm f3,50
+Successfully imported Canon 10mm f3,50
+Successfully imported Canon 20mm f3,50
+Successfully imported Canon 22mm f3,50
+Successfully imported Canon 11mm f3,50
+Successfully imported Canon 24mm f3,50
+Successfully imported Canon 12mm f3,50
+Successfully imported Canon 16mm f3,50
+Successfully imported Canon 12mm f3,50
+Successfully imported Canon 17mm f3,50
+Successfully imported Canon 15mm f4,00
+Successfully imported Canon 14mm f4,00
+Successfully imported Canon 50mm f4,00
+Successfully imported Canon 40mm f4,00
+Successfully imported Canon 35mm f4,00
+Successfully imported Canon 85mm f4,00
+Successfully imported Canon 70mm f4,00
+Successfully imported Canon 77mm f4,00
+Successfully imported Canon 135mm f1,40
+Successfully imported Canon 125mm f1,40
+Successfully imported Canon 200mm f1,40
+Successfully imported Canon 300mm f1,40
+Successfully imported Canon 400mm f1,40
+Successfully imported Canon 500mm f1,40
+Successfully imported Canon 350mm f1,40
+Successfully imported Canon 600mm f1,40
+Successfully imported Canon 1000mm f2,40
+Successfully imported Canon 1200mm f2,40
+Successfully imported Nikon 18mm f2,80
+Successfully imported Nikon 24mm f2,80
+Successfully imported Nikon 50mm f2,80
+Successfully imported Nikon 40mm f2,80
+Successfully imported Nikon 55mm f2,80
+Successfully imported Nikon 70mm f2,80
+Successfully imported Nikon 8mm f3,50
+Successfully imported Nikon 10mm f4,00
+Successfully imported Nikon 12mm f4,00
+Successfully imported Nikon 11mm f4,00
+Successfully imported Nikon 28mm f4,00
+Successfully imported Nikon 45mm f4,00
+Successfully imported Nikon 40mm f4,00
+Successfully imported Nikon 35mm f4,00
+Successfully imported Nikon 40mm f4,00
+Successfully imported Nikon 70mm f4,00
+Successfully imported Nikon 24mm f4,00
+Successfully imported Nikon 28mm f4,00
+Successfully imported Nikon 25mm f4,00
+Successfully imported Nikon 24mm f4,00
+Successfully imported Nikon 15mm f4,00
+Successfully imported Nikon 16mm f4,00
+Successfully imported Nikon 200mm f5,60
+Successfully imported Nikon 400mm f5,60
+Successfully imported Nikon 300mm f5,60
+Successfully imported Nikon 350mm f5,60
+Successfully imported Nikon 600mm f5,60
+Successfully imported Nikon 1200mm f8,00
+Successfully imported Nikon 2000mm f5,60
+Successfully imported Nikon 14mm f2,00
+Successfully imported Nikon 16mm f2,00
+Successfully imported Nikon 29mm f2,00
+Successfully imported Nikon 30mm f2,00
+Successfully imported Nikon 35mm f2,00
+Successfully imported Nikon 45mm f2,00
+Successfully imported Nikon 40mm f2,00
+Successfully imported Nikon 200mm f2,80
+Successfully imported Nikon 26mm f4,00
+Successfully imported Nikon 28mm f4,00
+Successfully imported Nikon 18mm f4,00
+Successfully imported Nikon 14mm f4,00
+Successfully imported Nikon 9mm f2,80
+Successfully imported Nikon 10mm f4,00
+Successfully imported Nikon 85mm f2,40
+Successfully imported Nikon 100mm f1,80
+Successfully imported Nikon 150mm f1,80
+Successfully imported Nikon 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f1,40
+Successfully imported Pentax 135mm f2,40
+Successfully imported Pentax 85mm f2,40
+Successfully imported Pentax 70mm f2,80
+Successfully imported Pentax 70mm f2,80
+Successfully imported Pentax 77mm f2,80
+Successfully imported Pentax 77mm f2,80
+Successfully imported Pentax 77mm f2,80
+Successfully imported Pentax 40mm f2,80
+Successfully imported Pentax 15mm f2,80
+Successfully imported Pentax 18mm f2,80
+Successfully imported Pentax 16mm f2,80
+Successfully imported Pentax 15mm f2,80
+Successfully imported Pentax 24mm f2,80
+Successfully imported Pentax 28mm f2,80
+Successfully imported Pentax 30mm f2,80
+Successfully imported Pentax 24mm f2,80
+Successfully imported Pentax 25mm f2,80
+Successfully imported Pentax 26mm f2,80
+Successfully imported Pentax 27mm f2,80
+Successfully imported Pentax 24mm f2,80
+Successfully imported Pentax 100mm f4,00
+Successfully imported Pentax 10mm f1,20
+Successfully imported Pentax 85mm f0,90
+Successfully imported Pentax 135mm f4,00
+Successfully imported Pentax 200mm f4,00
+Successfully imported Pentax 200mm f4,00
+Successfully imported Pentax 300mm f4,00
+Successfully imported Pentax 400mm f4,00
+Successfully imported Pentax 350mm f4,00
+Successfully imported Pentax 360mm f4,00
+Successfully imported Pentax 500mm f4,00
+Successfully imported Pentax 600mm f4,00
+Successfully imported Pentax 1200mm f2,80
+Successfully imported Pentax 400mm f4,00
+Successfully imported Pentax 15mm f5,60
+Successfully imported Pentax 8mm f1,00
+Successfully imported Pentax 10mm f1,20
+Successfully imported Pentax 200mm f2,80
+Successfully imported Pentax 200mm f2,80
+Successfully imported Pentax 200mm f2,80
+Successfully imported Pentax 200mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 135mm f2,80
+Successfully imported Pentax 14mm f2,80
+Successfully imported Pentax 16mm f2,80
+Successfully imported Pentax 15mm f2,80
+Successfully imported Sigma 18mm f4,00
+Successfully imported Sigma 35mm f4,00
+Successfully imported Sigma 28mm f4,00
+Successfully imported Sigma 24mm f4,00
+Successfully imported Sigma 55mm f4,00
+Successfully imported Sigma 50mm f4,00
+Successfully imported Sigma 40mm f4,00
+Successfully imported Sigma 70mm f4,00
+Successfully imported Sigma 77mm f4,00
+Successfully imported Sigma 85mm f4,00
+Successfully imported Sigma 18mm f4,00
+Successfully imported Sigma 135mm f4,00
+Successfully imported Sigma 40mm f2,40
+Successfully imported Sigma 50mm f2,40
+Successfully imported Sigma 24mm f2,40
+Successfully imported Sigma 30mm f2,40
+Successfully imported Sigma 15mm f2,40
+Successfully imported Sigma 16mm f2,40
+Successfully imported Sigma 20mm f2,40
+Successfully imported Sigma 8mm f1,40
+Successfully imported Sigma 11mm f2,00
+Successfully imported Sigma 13mm f2,00
+Successfully imported Sigma 14mm f2,00
+Successfully imported Sigma 15mm f2,00
+Successfully imported Sigma 16mm f2,00
+Successfully imported Sigma 20mm f2,00
+Successfully imported Sigma 50mm f2,00
+Successfully imported Sigma 135mm f2,80
+Successfully imported Sigma 200mm f2,80
+Successfully imported Sigma 70mm f1,40
+Successfully imported Sigma 15mm f1,40
+Successfully imported Sigma 10mm f1,40
+Successfully imported Sigma 85mm f1,40
+Successfully imported Sigma 40mm f1,40
+Successfully imported Sigma 125mm f2,00
+Successfully imported Sigma 30mm f2,40
+Successfully imported Sigma 35mm f2,40
+Successfully imported Sigma 28mm f2,40
+Successfully imported Tokina 15mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 14mm f2,00
+Successfully imported Tokina 20mm f2,00
+Successfully imported Tokina 20mm f2,00
+Successfully imported Tokina 20mm f2,00
+Successfully imported Tokina 20mm f2,00
+Successfully imported Tokina 20mm f2,00
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 20mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 135mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 24mm f1,80
+Successfully imported Tamron 28mm f1,80
+Successfully imported Tamron 28mm f1,80
+Successfully imported Tamron 28mm f1,80
+Successfully imported Tamron 28mm f1,80
+Successfully imported Tamron 28mm f1,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 28mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f2,80
+Successfully imported Tamron 30mm f1,80
+Successfully imported Tamron 30mm f1,80
+Successfully imported Sigma 40mm f1,80
+Successfully imported Sigma 40mm f1,80
+Successfully imported Sigma 40mm f1,80
+Successfully imported Sigma 40mm f1,80
+Successfully imported Sigma 40mm f1,80
+Successfully imported Sigma 24mm f1,80
+Successfully imported Sigma 24mm f1,80
+Successfully imported Sigma 24mm f1,80
+Successfully imported Sigma 24mm f1,80
+Successfully imported Sigma 24mm f1,80
+Successfully imported Sigma 15mm f1,80
+Successfully imported Sigma 15mm f1,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported Tokina 200mm f2,80
+Successfully imported DSLR Canon 500D
+Successfully imported Mirrorless Sony A55
+Successfully imported Mirrorless Sony A50
+Successfully imported DSLR Nikon D3100
+Error. Invalid data provided
+Error. Invalid data provided
+Successfully imported DSLR Canon 70D
+Successfully imported DSLR Canon 80D
+Successfully imported DSLR Canon 30D
+Successfully imported DSLR Canon 40D
+Successfully imported DSLR Canon 7D
+Successfully imported DSLR Canon 6D
+Successfully imported DSLR Canon 5D
+Successfully imported DSLR Canon 5D Mk II
+Successfully imported DSLR Canon 5D Mk III
+Successfully imported DSLR Canon 60D
+Successfully imported DSLR Canon 760D
+Successfully imported DSLR Canon 100D
+Successfully imported DSLR Canon 550D
+Successfully imported DSLR Canon 600D
+Successfully imported DSLR Canon 7D Mk II
+Successfully imported DSLR Canon 70D
+Successfully imported DSLR Canon 80D
+Successfully imported DSLR Canon 30D
+Successfully imported DSLR Canon 40D
+Successfully imported DSLR Canon 7D
+Successfully imported DSLR Canon 6D
+Successfully imported DSLR Canon 5D
+Successfully imported DSLR Canon 5D Mk II
+Successfully imported DSLR Canon 5D Mk III
+Successfully imported DSLR Canon 60D
+Successfully imported DSLR Canon 760D
+Successfully imported DSLR Canon 100D
+Successfully imported DSLR Canon 550D
+Successfully imported DSLR Canon 600D
+Successfully imported DSLR Canon 7D Mk II
+Successfully imported DSLR Canon 70D
+Successfully imported DSLR Canon 80D
+Successfully imported DSLR Canon 30D
+Successfully imported DSLR Canon 40D
+Successfully imported DSLR Canon 7D
+Successfully imported DSLR Canon 6D
+Successfully imported DSLR Canon 5D
+Successfully imported DSLR Canon 5D Mk II
+Successfully imported DSLR Canon 5D Mk III
+Successfully imported DSLR Canon 60D
+Successfully imported DSLR Canon 760D
+Successfully imported DSLR Canon 100D
+Successfully imported DSLR Canon 550D
+Successfully imported DSLR Canon 600D
+Successfully imported DSLR Canon 7D Mk II
+Successfully imported DSLR Canon 70D
+Successfully imported DSLR Canon 80D
+Successfully imported DSLR Canon 30D
+Successfully imported DSLR Canon 40D
+Successfully imported DSLR Canon 7D
+Successfully imported DSLR Canon 6D
+Successfully imported DSLR Canon 5D
+Successfully imported DSLR Canon 5D Mk II
+Error. Invalid data provided
+Successfully imported DSLR Canon 60D
+Successfully imported DSLR Canon 760D
+Successfully imported DSLR Canon 100D
+Successfully imported DSLR Canon 550D
+Successfully imported DSLR Canon 600D
+Successfully imported DSLR Canon 7D Mk II
+Successfully imported DSLR Canon 70D
+Successfully imported DSLR Canon 80D
+Successfully imported DSLR Canon 30D
+Successfully imported DSLR Canon 40D
+Successfully imported DSLR Canon 7D
+Successfully imported DSLR Canon 6D
+Successfully imported DSLR Canon 5D
+Successfully imported DSLR Canon 5D Mk II
+Successfully imported DSLR Canon 5D Mk III
+Successfully imported DSLR Canon 60D
+Successfully imported DSLR Canon 760D
+Successfully imported DSLR Canon 100D
+Successfully imported DSLR Canon 550D
+Successfully imported DSLR Canon 600D
+Successfully imported DSLR Canon 7D Mk II
+Successfully imported DSLR Nikon D7000
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D600
+Successfully imported DSLR Nikon D7100
+Successfully imported DSLR Nikon D7200
+Successfully imported DSLR Nikon D5500
+Successfully imported DSLR Nikon D800
+Successfully imported DSLR Nikon D750
+Successfully imported DSLR Nikon D3X
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D4S
+Successfully imported DSLR Nikon D500
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D5
+Error. Invalid data provided
+Successfully imported DSLR Nikon D2Xs
+Successfully imported DSLR Nikon D2X
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D300S
+Successfully imported DSLR Nikon D100
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D40
+Successfully imported DSLR Nikon D7000
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D600
+Successfully imported DSLR Nikon D7100
+Successfully imported DSLR Nikon D7200
+Successfully imported DSLR Nikon D5500
+Successfully imported DSLR Nikon D800
+Successfully imported DSLR Nikon D750
+Successfully imported DSLR Nikon D3X
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D4S
+Successfully imported DSLR Nikon D500
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D5
+Error. Invalid data provided
+Successfully imported DSLR Nikon D2Xs
+Successfully imported DSLR Nikon D2X
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D300S
+Successfully imported DSLR Nikon D100
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D40
+Successfully imported DSLR Nikon D7000
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D600
+Successfully imported DSLR Nikon D7100
+Successfully imported DSLR Nikon D7200
+Successfully imported DSLR Nikon D5500
+Successfully imported DSLR Nikon D800
+Successfully imported DSLR Nikon D750
+Successfully imported DSLR Nikon D3X
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D4S
+Successfully imported DSLR Nikon D500
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D5
+Successfully imported DSLR Nikon D2H
+Successfully imported DSLR Nikon D2Xs
+Successfully imported DSLR Nikon D2X
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D300S
+Successfully imported DSLR Nikon D100
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D40
+Successfully imported DSLR Nikon D7000
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D600
+Successfully imported DSLR Nikon D7100
+Successfully imported DSLR Nikon D7200
+Successfully imported DSLR Nikon D5500
+Successfully imported DSLR Nikon D800
+Successfully imported DSLR Nikon D750
+Successfully imported DSLR Nikon D3X
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D4S
+Successfully imported DSLR Nikon D500
+Successfully imported DSLR Nikon D4
+Successfully imported DSLR Nikon D5
+Error. Invalid data provided
+Successfully imported DSLR Nikon D2Xs
+Successfully imported DSLR Nikon D2X
+Successfully imported DSLR Nikon D300
+Successfully imported DSLR Nikon D300S
+Successfully imported DSLR Nikon D100
+Successfully imported DSLR Nikon D200
+Successfully imported DSLR Nikon D40
+Successfully imported DSLR Pentax K100D
+Successfully imported DSLR Pentax K110D
+Successfully imported DSLR Pentax K100D Super
+Successfully imported DSLR Pentax K10D
+Successfully imported DSLR Pentax K200D
+Successfully imported DSLR Pentax K-m
+Successfully imported DSLR Pentax K-7
+Successfully imported DSLR Pentax K-x
+Successfully imported DSLR Pentax K-r
+Successfully imported DSLR Pentax K-5
+Successfully imported DSLR Pentax K-01
+Successfully imported DSLR Pentax K-30
+Successfully imported DSLR Pentax K-5 II
+Successfully imported DSLR Pentax K-50
+Successfully imported DSLR Pentax K-500
+Successfully imported DSLR Pentax K-3
+Successfully imported DSLR Pentax K-3 II
+Successfully imported DSLR Pentax K-1
+Successfully imported DSLR Pentax K-70
+Successfully imported DSLR Pentax K100D
+Successfully imported DSLR Pentax K110D
+Successfully imported DSLR Pentax K100D Super
+Successfully imported DSLR Pentax K10D
+Successfully imported DSLR Pentax K200D
+Successfully imported DSLR Pentax K-m
+Successfully imported DSLR Pentax K-7
+Successfully imported DSLR Pentax K-x
+Successfully imported DSLR Pentax K-r
+Successfully imported DSLR Pentax K-5
+Successfully imported DSLR Pentax K-01
+Successfully imported DSLR Pentax K-30
+Successfully imported DSLR Pentax K-5 II
+Successfully imported DSLR Pentax K-50
+Successfully imported DSLR Pentax K-500
+Successfully imported DSLR Pentax K-3
+Successfully imported DSLR Pentax K-3 II
+Successfully imported DSLR Pentax K-1
+Successfully imported DSLR Pentax K-70
+Successfully imported DSLR Pentax K100D
+Successfully imported DSLR Pentax K110D
+Successfully imported DSLR Pentax K100D Super
+Successfully imported DSLR Pentax K10D
+Successfully imported DSLR Pentax K200D
+Successfully imported DSLR Pentax K-m
+Successfully imported DSLR Pentax K-7
+Successfully imported DSLR Pentax K-x
+Successfully imported DSLR Pentax K-r
+Successfully imported DSLR Pentax K-5
+Successfully imported DSLR Pentax K-01
+Successfully imported DSLR Pentax K-30
+Successfully imported DSLR Pentax K-5 II
+Successfully imported DSLR Pentax K-50
+Successfully imported DSLR Pentax K-500
+Successfully imported DSLR Pentax K-3
+Successfully imported DSLR Pentax K-3 II
+Successfully imported DSLR Pentax K-1
+Successfully imported DSLR Pentax K-70
+Successfully imported Mirrorless Sony A900
+Successfully imported Mirrorless Sony A850
+Successfully imported Mirrorless Sony A560
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A450
+Successfully imported Mirrorless Sony A390
+Successfully imported Mirrorless Sony A35
+Successfully imported Mirrorless Sony A65
+Successfully imported Mirrorless Sony A77
+Successfully imported Mirrorless Sony A33
+Successfully imported Mirrorless Sony A580
+Successfully imported Mirrorless Sony A290
+Successfully imported Mirrorless Sony A230
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A100
+Successfully imported Mirrorless Sony A900
+Successfully imported Mirrorless Sony A850
+Successfully imported Mirrorless Sony A560
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A450
+Successfully imported Mirrorless Sony A390
+Successfully imported Mirrorless Sony A35
+Successfully imported Mirrorless Sony A65
+Error. Invalid data provided
+Successfully imported Mirrorless Sony A33
+Successfully imported Mirrorless Sony A580
+Successfully imported Mirrorless Sony A290
+Successfully imported Mirrorless Sony A230
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A100
+Successfully imported Mirrorless Sony A900
+Successfully imported Mirrorless Sony A850
+Successfully imported Mirrorless Sony A560
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A450
+Successfully imported Mirrorless Sony A390
+Successfully imported Mirrorless Sony A35
+Successfully imported Mirrorless Sony A65
+Successfully imported Mirrorless Sony A77
+Successfully imported Mirrorless Sony A33
+Successfully imported Mirrorless Sony A580
+Successfully imported Mirrorless Sony A290
+Successfully imported Mirrorless Sony A230
+Successfully imported Mirrorless Sony A300
+Successfully imported Mirrorless Sony A100
+Successfully imported Mirrorless Fuji X100
+Successfully imported Mirrorless Fuji X10
+Successfully imported Mirrorless Fuji XS1
+Successfully imported Mirrorless Fuji XPro1
+Successfully imported Mirrorless Fuji XMount
+Successfully imported Mirrorless Fuji XF1
+Successfully imported Mirrorless Fuji X20
+Successfully imported Mirrorless Fuji X100S
+Successfully imported Mirrorless Fuji XM1
+Successfully imported Mirrorless Fuji XA1
+Successfully imported Mirrorless Fuji XQ1
+Successfully imported Mirrorless Fuji XA2
+Successfully imported Mirrorless Fuji XT10
+Successfully imported Mirrorless Fuji XE2s
+Successfully imported Mirrorless Fuji X70
+Successfully imported Mirrorless Fuji XT2
+Successfully imported Mirrorless Fuji X100
+Successfully imported Mirrorless Fuji X10
+Successfully imported Mirrorless Fuji XS1
+Successfully imported Mirrorless Fuji XPro1
+Successfully imported Mirrorless Fuji XMount
+Successfully imported Mirrorless Fuji XF1
+Successfully imported Mirrorless Fuji X20
+Successfully imported Mirrorless Fuji X100S
+Successfully imported Mirrorless Fuji XM1
+Successfully imported Mirrorless Fuji XA1
+Successfully imported Mirrorless Fuji XQ1
+Successfully imported Mirrorless Fuji XA2
+Successfully imported Mirrorless Fuji XT10
+Successfully imported Mirrorless Fuji XE2s
+Successfully imported Mirrorless Fuji X70
+Successfully imported Mirrorless Fuji XT2
+Successfully imported Mirrorless Fuji X100
+Successfully imported Mirrorless Fuji X10
+Successfully imported Mirrorless Fuji XS1
+Successfully imported Mirrorless Fuji XPro1
+Successfully imported Mirrorless Fuji XMount
+Successfully imported Mirrorless Fuji XF1
+Successfully imported Mirrorless Fuji X20
+Successfully imported Mirrorless Fuji X100S
+Successfully imported Mirrorless Fuji XM1
+Successfully imported Mirrorless Fuji XA1
+Successfully imported Mirrorless Fuji XQ1
+Successfully imported Mirrorless Fuji XA2
+Successfully imported Mirrorless Fuji XT10
+Successfully imported Mirrorless Fuji XE2s
+Successfully imported Mirrorless Fuji X70
+Successfully imported Mirrorless Fuji XT2
+Successfully imported Mirrorless Fuji X100
+Successfully imported Mirrorless Fuji X10
+Successfully imported Mirrorless Fuji XS1
+Successfully imported Mirrorless Fuji XPro1
+Successfully imported Mirrorless Fuji XMount
+Successfully imported Mirrorless Fuji XF1
+Error. Invalid data provided
+Error. Invalid data provided
+Error. Invalid data provided
+Successfully imported Mirrorless Fuji XA1
+Successfully imported Mirrorless Fuji XQ1
+Successfully imported Mirrorless Fuji XA2
+Successfully imported Mirrorless Fuji XT10
+Successfully imported Mirrorless Fuji XE2s
+Successfully imported Mirrorless Fuji X70
+Successfully imported Mirrorless Fuji XT2
+Successfully imported Jared Polin | Lenses: 4
+Successfully imported Samuel Fosso | Lenses: 2
+Error. Invalid data provided
+Successfully imported Zhang Xiao | Lenses: 0
+Error. Invalid data provided
+Successfully imported Alberto Korda | Lenses: 1
+Successfully imported Yan Greenidge | Lenses: 2
+Successfully imported Odis Borne | Lenses: 2
+Successfully imported Delta Tiano | Lenses: 5
+Successfully imported Turla Cowger | Lenses: 1
+Successfully imported Bong Mungin | Lenses: 1
+Successfully imported Delorse Bunge | Lenses: 3
+Successfully imported Amparo Goers | Lenses: 1
+Successfully imported Leon Recio | Lenses: 1
+Successfully imported Alica Lacher | Lenses: 1
+Successfully imported Bunny Nolan | Lenses: 3
+Successfully imported Lyle Longworth | Lenses: 3
+Successfully imported Hungo Poter | Lenses: 2
+Successfully imported Camaru Kolya | Lenses: 1
+Successfully imported Reto Kol | Lenses: 0
+Successfully imported Opal Blue | Lenses: 7
+Successfully imported Joshua Nolley | Lenses: 7
+Successfully imported Meggan Danzy | Lenses: 7
+Successfully imported Stephaine Smidt | Lenses: 7
+Successfully imported Jamie Mauger | Lenses: 7
+Successfully imported Antonietta Reza | Lenses: 7
+Successfully imported Stephnie Arciniega | Lenses: 7
+Successfully imported Melodee Shepler | Lenses: 7
+Successfully imported Gaston Mclees | Lenses: 7
+Successfully imported Rosalba Hane | Lenses: 7
+Successfully imported Freeda Casimir | Lenses: 10
+Successfully imported Dante Ketter | Lenses: 10
+Successfully imported Lajuana Mcclean | Lenses: 10
+Successfully imported Jenna Baize | Lenses: 10
+Successfully imported Carolee Kuder | Lenses: 10
+Error. Invalid data provided
+Successfully imported Annabelle Nimmo | Lenses: 10
+Successfully imported Mckenzie Monteiro | Lenses: 10
+Successfully imported Freeman Dalby | Lenses: 10
+Successfully imported Krystin Lindstedt | Lenses: 10
+Successfully imported Shiloh Heckert | Lenses: 10
+Error. Invalid data provided
+Error. Invalid data provided
+Error. Invalid data provided
+Successfully imported Harley Gerardo | Lenses: 10
+Successfully imported Rosalie Ragsdale | Lenses: 10
+Successfully imported Beula Zendejas | Lenses: 10
+Successfully imported Oma Wechsler | Lenses: 10
+Successfully imported Jay Stanforth | Lenses: 10
+Successfully imported Ralph Rizer | Lenses: 10
+Successfully imported Fidel Sato | Lenses: 10
+Successfully imported Dani Vanness | Lenses: 10
+Successfully imported Azucena Stclaire | Lenses: 10
+Successfully imported Tu Aslinger | Lenses: 10
+Successfully imported Talitha Jong | Lenses: 10
+Successfully imported Danny Nethery | Lenses: 10
+Successfully imported Wilfredo Finnegan | Lenses: 10
+Successfully imported Allyson Gayman | Lenses: 10
+Successfully imported Joane Claflin | Lenses: 10
+Successfully imported Betsey Oconner | Lenses: 10
+Successfully imported Antonetta Gano | Lenses: 10
+Successfully imported Aurora Broadhurst | Lenses: 10
+Successfully imported Cheri Regina | Lenses: 10
+Successfully imported Ola Straw | Lenses: 10
+Successfully imported Tashia Lunsford | Lenses: 10
+Successfully imported Johnathan Vazguez | Lenses: 10
+Successfully imported Dinah Mckenney | Lenses: 10
+Successfully imported Rita Bucklew | Lenses: 10
+Successfully imported Adria Mcquire | Lenses: 10
+Successfully imported Romona Griffin | Lenses: 10
+Successfully imported Leontine Breitenbach | Lenses: 10
+Successfully imported Joan Fife | Lenses: 10
+Successfully imported Denisha Gatton | Lenses: 10
+Successfully imported Luciano Brisker | Lenses: 10
+Successfully imported Valery Pickens | Lenses: 10
+Successfully imported Nam Dinkins | Lenses: 10
+Successfully imported Cristopher Brinkerhoff | Lenses: 10
+Successfully imported Kirstin Whidbee | Lenses: 10
+Successfully imported Wendy Ellwood | Lenses: 10
+Successfully imported Sharee Rothchild | Lenses: 10
+Successfully imported Shon Bjerke | Lenses: 10
+Successfully imported Keely Futrell | Lenses: 10
+Successfully imported Aimee Ochoa | Lenses: 10
+Successfully imported China Horsey | Lenses: 10
+Successfully imported Lucina Jesse | Lenses: 10
+Successfully imported Shannon Clendenin | Lenses: 10
+Successfully imported Federico Arceo | Lenses: 10
+Successfully imported Heide Plemmons | Lenses: 10
+Successfully imported Gena Gering | Lenses: 10
+Successfully imported Leota Eastep | Lenses: 10
+Successfully imported Romona Kumm | Lenses: 10
+Successfully imported Beverley Kirby | Lenses: 10
+Successfully imported Margarita Sollers | Lenses: 10
+Successfully imported Benjamin Lindblad | Lenses: 10
+Successfully imported Deetta Beausoleil | Lenses: 10
+Successfully imported Helena Cahn | Lenses: 10
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Tripod Manfrotto 123X
+Successfully imported Lens Hood E62
+Successfully imported Lens Hood E77
+Successfully imported LensPen Pro
+Successfully imported Lens Cleaning Kit Z220
+Successfully imported Lens Hood EW-60F
+Successfully imported Lens Hood ET-74B
+Successfully imported Lens Hood EW-73D
+Successfully imported Lens Hood ES-22
+Successfully imported Lens Hood EW-88D
+Successfully imported Lens Hood EW-73C
+Successfully imported Lens Hood EW-83M
+Successfully imported Lens Hood ES-68
+Successfully imported Lens Hood EW-77B
+Successfully imported Lens Hood EW-60E
+Successfully imported Lens Hood ET-54B
+Successfully imported Lens Hood EW-43
+Successfully imported Lens Hood EW-53
+Successfully imported Lens Hood ET-83D
+Successfully imported Nikon HB-69 Bayonet Lens Hood
+Successfully imported Nikon HB-40 Bayonet Lens Hood
+Successfully imported Nikon HB-35 Lens Hood
+Successfully imported Nikon HB-39 Bayonet Lens Hood
+Successfully imported Nikon HB-32 Lens Hood
+Successfully imported Nikon HB-23 Bayonet Lens Hood
+Successfully imported Pentax PH-RBK 77mm Lens Hood
+Successfully imported Pentax PH-RBA 52mm Lens Hood
+Successfully imported Pentax PH-RBK 67mm Lens Hood
+Successfully imported Pentax 49mm Rubber Lens Hood 
+Successfully imported Pentax PH-RBA72 Lens Hood
+Successfully imported Pentax MH-RA55 Lens Hood
+Successfully imported Pentax MH-RF49 Lens Hood
+Successfully imported Pentax PH-RBB52 Lens Hood
+Successfully imported Pentax PH-RBC 52mm Lens Hood
+Successfully imported Pentax PH-RBC62 62mm Lens Hood
+Successfully imported 55 mm Front Lens Cap
+Successfully imported 62 mm Front Lens Cap
+Successfully imported 49 mm Front Lens Cap
+Successfully imported Magnus MaxiGrip Flexible Tripod 
+Successfully imported Magnus PV-3310 Photo Tripod With 3-Way Pan and Tilt Head
+Successfully imported Oben CT-2491 Carbon Fiber Tripod
+Successfully imported Oben AC-2341L 3-Section Aluminum Lateral Tripod Legs
+Successfully imported Magnus PV-7451M Tripod/Monopod with 3-Way Pan/Tilt Head
+Successfully imported Vanguard Alta CA 233AGH Aluminum Tripod 
+Successfully imported Oben TT-100 Table Top Tripod
+Successfully imported Joby GorillaPod Original Eco Flexible Mini-Tripod (Black/Sky Blue)
+Successfully imported Manfrotto BeFree One Aluminum Tripod (Black)
+Successfully imported Joby Gorillapod SLR-Zoom Flexible Mini Tripod
+Successfully imported Manfrotto Compact Advanced Aluminum Tripod
+Successfully imported Manfrotto BeFree Compact Travel Carbon Fiber Tripod 
+Successfully imported Vanguard ALTA PRO 263AB TRIPOD w/HEAD
+Successfully imported Wildlife Birds
+Error. Invalid data provided
+Error. Invalid data provided
+Error. Invalid data provided
+Successfully imported Street Photography
+Error. Invalid data provided
+Successfully imported Street Photography Part 3
+Successfully imported Norway's Trains and Fjords
+Successfully imported Trans-Siberian Rail Odyssey
+Successfully imported India by Rail Photography Expedition
+Successfully imported Swiss Trains and the Italian Lake District
+Successfully imported Canadian Rockies by Rail and Trail
+Successfully imported Peru: Amazon, Machu Picchu, and Lake Titicaca
+Successfully imported Morocco Photography Expedition
+Successfully imported China Photography Expedition
+Successfully imported Inside Japan Photography Expedition
+Successfully imported Winter in Japan Photography Expedition
+Successfully imported Advanced Photography and Lighting Workshop: Saint Lucia
+Successfully imported Cuba and Its People: A Photographic Exploration
+Successfully imported Cuba by Land and Sea: Cultural Heritage and Natural Wonders
+Successfully imported Photo Workshop: Switzerland
+Error. Invalid data provided
+Successfully imported New York City Smartphone Photo Workshop
+Successfully imported New York City Weekend Photo Workshop
+Successfully imported Photo Workshop: Wyoming's Cowboy Country
+Successfully imported San Francisco Weekend Photo Workshop
+Successfully imported Weekend Photo Workshop: New Orleans
+Successfully imported Weekend Photo Workshop: Austin
+Error. Invalid data provided
+Successfully imported Winter in Yellowstone Photography Expedition
+Error. Invalid data provided
+Successfully imported Weekend Photo Workshop: Washington, D.C.
+Successfully imported Epic Galapagos Photography Expedition
+Successfully imported Galapagos Photo Expedition
+Successfully imported Vietnam and Cambodia: Along the Mekong River
+Successfully imported Reefs and Ruins: Belize to Tikal, Guatemala
+Successfully imported Nordic Passages: Shetlands, Orkneys, Faroes, and Iceland
+Successfully imported Land of the Polar Bears
+Successfully imported Norway's Fjords and Arctic Svalbard
+Successfully imported Greek Isles
+Successfully imported Scotland's Highlands and Islands
+Successfully imported Svalbard, Iceland, and Greenland's East Coast
+Successfully imported Scandinavia by Sea: Denmark, Sweden, and Norway
+Successfully imported Alaska Family Voyage
+Successfully imported Alaska's Inside Passage
+Successfully imported Epic 80N
+Successfully imported Exploring Greenland and the Canadian High Arctic
+2017-05-26 17:59:21.290  INFO 19152 --- [           main] com.photographyworkshops.Test1           : Started Test1 in 8.246 seconds (JVM running for 9.087)
+]]></system-out>
+  </testcase>
+</testsuite>
