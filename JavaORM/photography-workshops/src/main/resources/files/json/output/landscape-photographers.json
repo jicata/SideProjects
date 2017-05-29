@@ -1,0 +1,572 @@
+[
+  {
+    "firstName": "Adria",
+    "lastName": "Mcquire",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Adria",
+    "lastName": "Mcquire",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Aimee",
+    "lastName": "Ochoa",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Aimee",
+    "lastName": "Ochoa",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Aimee",
+    "lastName": "Ochoa",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Aimee",
+    "lastName": "Ochoa",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Antonetta",
+    "lastName": "Gano",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Aurora",
+    "lastName": "Broadhurst",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Aurora",
+    "lastName": "Broadhurst",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Aurora",
+    "lastName": "Broadhurst",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Aurora",
+    "lastName": "Broadhurst",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Azucena",
+    "lastName": "Stclaire",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Azucena",
+    "lastName": "Stclaire",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Betsey",
+    "lastName": "Oconner",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Beula",
+    "lastName": "Zendejas",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Beverley",
+    "lastName": "Kirby",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Beverley",
+    "lastName": "Kirby",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Beverley",
+    "lastName": "Kirby",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Cheri",
+    "lastName": "Regina",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Cheri",
+    "lastName": "Regina",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Cheri",
+    "lastName": "Regina",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Cheri",
+    "lastName": "Regina",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Cristopher",
+    "lastName": "Brinkerhoff",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Cristopher",
+    "lastName": "Brinkerhoff",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Dani",
+    "lastName": "Vanness",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Dani",
+    "lastName": "Vanness",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Dani",
+    "lastName": "Vanness",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Dani",
+    "lastName": "Vanness",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Dante",
+    "lastName": "Ketter",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Deetta",
+    "lastName": "Beausoleil",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Deetta",
+    "lastName": "Beausoleil",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Deetta",
+    "lastName": "Beausoleil",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Deetta",
+    "lastName": "Beausoleil",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Deetta",
+    "lastName": "Beausoleil",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Denisha",
+    "lastName": "Gatton",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Denisha",
+    "lastName": "Gatton",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Denisha",
+    "lastName": "Gatton",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Dinah",
+    "lastName": "Mckenney",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Dinah",
+    "lastName": "Mckenney",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Dinah",
+    "lastName": "Mckenney",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Dinah",
+    "lastName": "Mckenney",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 5
+  },
+  {
+    "firstName": "Fidel",
+    "lastName": "Sato",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Freeman",
+    "lastName": "Dalby",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 2
+  },
+  {
+    "firstName": "Heide",
+    "lastName": "Plemmons",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Heide",
+    "lastName": "Plemmons",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Heide",
+    "lastName": "Plemmons",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Heide",
+    "lastName": "Plemmons",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Jay",
+    "lastName": "Stanforth",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Jenna",
+    "lastName": "Baize",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 2
+  },
+  {
+    "firstName": "Joan",
+    "lastName": "Fife",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Joan",
+    "lastName": "Fife",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Joan",
+    "lastName": "Fife",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Joane",
+    "lastName": "Claflin",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Keely",
+    "lastName": "Futrell",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Keely",
+    "lastName": "Futrell",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Keely",
+    "lastName": "Futrell",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Lajuana",
+    "lastName": "Mcclean",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 2
+  },
+  {
+    "firstName": "Lajuana",
+    "lastName": "Mcclean",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 2
+  },
+  {
+    "firstName": "Leontine",
+    "lastName": "Breitenbach",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Leontine",
+    "lastName": "Breitenbach",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Leontine",
+    "lastName": "Breitenbach",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Leontine",
+    "lastName": "Breitenbach",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Luciano",
+    "lastName": "Brisker",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Lucina",
+    "lastName": "Jesse",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Lucina",
+    "lastName": "Jesse",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Melodee",
+    "lastName": "Shepler",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Nam",
+    "lastName": "Dinkins",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 8
+  },
+  {
+    "firstName": "Nam",
+    "lastName": "Dinkins",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 8
+  },
+  {
+    "firstName": "Nam",
+    "lastName": "Dinkins",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 8
+  },
+  {
+    "firstName": "Nam",
+    "lastName": "Dinkins",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 8
+  },
+  {
+    "firstName": "Ralph",
+    "lastName": "Rizer",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 2
+  },
+  {
+    "firstName": "Rita",
+    "lastName": "Bucklew",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 1
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Kumm",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Griffin",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Griffin",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 3
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Kumm",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Kumm",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Romona",
+    "lastName": "Kumm",
+    "primaryCameraMake": "Canon",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Shannon",
+    "lastName": "Clendenin",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Shannon",
+    "lastName": "Clendenin",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Shannon",
+    "lastName": "Clendenin",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Shannon",
+    "lastName": "Clendenin",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 9
+  },
+  {
+    "firstName": "Shon",
+    "lastName": "Bjerke",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Shon",
+    "lastName": "Bjerke",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Shon",
+    "lastName": "Bjerke",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Shon",
+    "lastName": "Bjerke",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 4
+  },
+  {
+    "firstName": "Tashia",
+    "lastName": "Lunsford",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Tashia",
+    "lastName": "Lunsford",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Tashia",
+    "lastName": "Lunsford",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Tashia",
+    "lastName": "Lunsford",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Tashia",
+    "lastName": "Lunsford",
+    "primaryCameraMake": "Pentax",
+    "lensesCount": 7
+  },
+  {
+    "firstName": "Wendy",
+    "lastName": "Ellwood",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Wendy",
+    "lastName": "Ellwood",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Wendy",
+    "lastName": "Ellwood",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 6
+  },
+  {
+    "firstName": "Wendy",
+    "lastName": "Ellwood",
+    "primaryCameraMake": "Nikon",
+    "lensesCount": 6
+  }
+]

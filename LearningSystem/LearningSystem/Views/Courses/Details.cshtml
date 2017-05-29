@@ -1,0 +1,32 @@
+﻿@model LearningSystem.Models.ViewModels.Courses.DetailsCourseVm
+
+@{
+    ViewBag.Title = "Course Details";
+}
+<h2>Course Details</h2>
+
+<span class="course-prop">@Html.DisplayNameFor(vm => Model.Name)</span>
+@Html.DisplayFor(vm => Model.Name, null, new { htmlAttributes = new { @class = "large-text" } })
+<br />
+
+<span class="course-prop">@Html.DisplayNameFor(vm => Model.Description)</span>
+@Html.DisplayFor(vm => Model.Description, null, new { htmlAttributes = new { @class = "large-text" } })
+<br />
+
+<span class="course-prop">@Html.DisplayNameFor(vm => Model.StartDate)</span>
+@Html.DisplayFor(vm => Model.StartDate, null, new { htmlAttributes = new { @class = "large-text" } })
+<br />
+
+<span class="course-prop">@Html.DisplayNameFor(vm => Model.EndDate)</span>
+@Html.DisplayFor(vm => Model.EndDate, null, new { htmlAttributes = new { @class = "large-text" } })
+<br />
+
+@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-lg btn-primary" })
+@if (User.Identity.IsAuthenticated && Model.StartDate > DateTime.Now)
+{
+    using (Html.BeginForm("Enroll", "Users", FormMethod.Post))
+    {
+        <input type="number" value="@Model.Id" hidden="hidden" name="courseId" />
+        <input type="submit" value="Sign In/Out" class="btn btn-lg btn-success" />
+    }
+}

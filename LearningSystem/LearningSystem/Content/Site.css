@@ -1,0 +1,72 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.course {
+    border: 2px solid black;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.course-prop {
+    color: green;
+    font-size: 23px;
+}
+
+.large-text {
+    font-size: 20px;
+}
+
+article {
+    border: 1px dashed blue;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.publish-date {
+    color: red;
+}
+
+.author {
+    text-decoration: underline;
+    color: blueviolet;
+}
+
+.bordered {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.admin-course {
+    border: 2px dotted orange;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.admin-user {
+    border: 2px dotted green;
+    margin-bottom: 5px;
+    padding: 5px;
+}
