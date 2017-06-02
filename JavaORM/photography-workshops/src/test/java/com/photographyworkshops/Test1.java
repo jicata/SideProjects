@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -24,8 +26,10 @@ public class Test1 {
 
     @Test
     public void test() throws Exception {
-     lenRepository.save(new Lens());
-    Assert.assertEquals(true,lenRepository.findAll().iterator().hasNext());
+//     lenRepository.save(new Lens());
+//    Assert.assertEquals(true,lenRepository.findAll().iterator().hasNext());
+        ArrayList<String> list = new ArrayList<>();
+        list.remove(-1);
     }
 
 }

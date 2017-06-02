@@ -17,6 +17,12 @@ namespace TestApp
         protected const string StartClassNodePath = @"//pomns:start-class";
         static void Main(string[] args)
         {
+
+            decimal studioPrice = 1.1m;
+            decimal nights = 3.3m;
+            Console.WriteLine($"Studio: {(studioPrice * nights)} lv.");
+            string ran = $"{(studioPrice * nights)}";
+            return;
             string pomXmlPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops\pom.xml";
             string pomXmlNamepace = @"http://maven.apache.org/POM/4.0.0";
 
