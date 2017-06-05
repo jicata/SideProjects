@@ -13,16 +13,11 @@ namespace TestApp
     class Program
     {
         private const string FileNameAndTypeIndicatorPattern = @"(@PropertySources?\((?:.*?)\))";
-        protected const string PropertiesNodePath = @"//pomns:properties/pomns:start-class";
+        protected const string DependenciesNodePath = @"//pomns:dependencies/pomns:dependency[pomns:groupId='javax.el']";
         protected const string StartClassNodePath = @"//pomns:start-class";
         static void Main(string[] args)
         {
 
-            decimal studioPrice = 1.1m;
-            decimal nights = 3.3m;
-            Console.WriteLine($"Studio: {(studioPrice * nights)} lv.");
-            string ran = $"{(studioPrice * nights)}";
-            return;
             string pomXmlPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops\pom.xml";
             string pomXmlNamepace = @"http://maven.apache.org/POM/4.0.0";
 
@@ -33,10 +28,43 @@ namespace TestApp
             XmlNamespaceManager namespaceManager = new XmlNamespaceManager(doc.NameTable);
             namespaceManager.AddNamespace("pomns", pomXmlNamepace);
 
-            XmlNode rootNode = doc.DocumentElement;
-            var nuGetTargetNode = rootNode.SelectSingleNode(PropertiesNodePath, namespaceManager);          
-            Console.WriteLine(nuGetTargetNode.InnerText.Trim());
-            //   var packageName = doc.Root.Element("properties").Element("start-class").Value;
+            XmlNode rootNode= doc.DocumentElement;
+            var dependenciesNode = rootNode.SelectSingleNode(DependenciesNodePath, namespaceManager);
+
+            foreach (XmlNode childNode in dependenciesNode.ChildNodes)
+            {
+                foreach (XmlNode innerDependencyProperties in childNode.ChildNodes)
+                {
+                    if (innerDependencyProperties.LocalName == "groupId")
+                    {
+                        if (innerDependencyProperties.InnerText.Contains("javax.el"))
+                        {                                 
+                                                          
+                        }                                 
+                        if (innerDependencyProperties.InnerText.Contains("junit"))
+                        {                                  
+                                                           
+                        }                                  
+                        if (innerDependencyProperties.InnerText.Contains("org.hsqldb"))
+                        {
+                            
+                        }
+                    }
+                }   
+            }
+            XmlNode dependencyNode = doc.CreateNode(XmlNodeType.Element, "dependency", pomXmlNamepace);
+
+            XmlNode groupId = doc.CreateNode(XmlNodeType.Element, "groupId", pomXmlNamepace);
+            groupId.InnerText = "javaxxxxx.el";
+            XmlNode artifactId = doc.CreateNode(XmlNodeType.Element, "artifactId", pomXmlNamepace);
+            artifactId.InnerText = "el-api";
+
+            dependencyNode.AppendChild(groupId);
+            dependencyNode.AppendChild(artifactId);
+
+            dependenciesNode.AppendChild(dependencyNode);
+            doc.Save("D:\\example.xml");
+            return;
 
 
    
