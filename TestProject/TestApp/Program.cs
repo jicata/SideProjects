@@ -7,63 +7,99 @@ using Ionic.Zip;
 
 namespace TestApp
 {
+    using System.Diagnostics;
     using System.Xml;
     using System.Xml.Linq;
+    using Microsoft.Build.Evaluation;
 
     class Program
     {
         private const string FileNameAndTypeIndicatorPattern = @"(@PropertySources?\((?:.*?)\))";
         protected const string DependenciesNodePath = @"//pomns:dependencies/pomns:dependency[pomns:groupId='javax.el']";
         protected const string StartClassNodePath = @"//pomns:start-class";
+        protected const string MicrosoftCsProjXmlNamespace = "http://schemas.microsoft.com/developer/msbuild/2003";
+        protected const string NuGetXmlNodeXPath = @"//msns:Import[@Project='$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets']";
+
         static void Main(string[] args)
         {
+
+            ProcessStartInfo psi = new ProcessStartInfo(@"C:\Ruby24-x64\bin\ruby.exe", @"C:\SideAndTestProjects\Ruby\first.rb");
+            psi.UseShellExecute = false;
+            psi.RedirectStandardOutput = true;
+            Process process = new Process();
+            process.StartInfo = psi;
+            process.Start();
+            string output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            Console.WriteLine(output);
+            return;
+            
+
+            string csprojPath = @"C:\Users\Administrator\Downloads\New folder\LearningSystem\LearningSystem.Web.csproj";
+            Project project = new Project(csprojPath);
+
+            var vsToolsImport =
+                project.Imports.Any(
+                    i =>
+                        i.ImportingElement.Project ==
+                        "$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.targets");
+
+            XmlDocument csprojXml = new XmlDocument();
+            csprojXml.Load(csprojPath);
+            XmlNamespaceManager namespaceManager = new XmlNamespaceManager(csprojXml.NameTable);
+            namespaceManager.AddNamespace("msns", MicrosoftCsProjXmlNamespace);
+
+            XmlNode rootNode = csprojXml.DocumentElement;
+            var nuGetTargetNode = rootNode.SelectSingleNode(NuGetXmlNodeXPath, namespaceManager);
+          //  rootNode.RemoveChild(nuGetTargetNode);
+            csprojXml.Save(csprojPath);
 
             string pomXmlPath = @"C:\SideAndTestProjects\JavaORM\photography-workshops\pom.xml";
             string pomXmlNamepace = @"http://maven.apache.org/POM/4.0.0";
 
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(pomXmlPath);
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(pomXmlPath);
 
-            XmlNamespaceManager namespaceManager = new XmlNamespaceManager(doc.NameTable);
-            namespaceManager.AddNamespace("pomns", pomXmlNamepace);
+            //XmlNamespaceManager namespaceManager = new XmlNamespaceManager(doc.NameTable);
+            //namespaceManager.AddNamespace("pomns", pomXmlNamepace);
 
-            XmlNode rootNode= doc.DocumentElement;
-            var dependenciesNode = rootNode.SelectSingleNode(DependenciesNodePath, namespaceManager);
+            //XmlNode rootNode= doc.DocumentElement;
+            //var dependenciesNode = rootNode.SelectSingleNode(DependenciesNodePath, namespaceManager);
 
-            foreach (XmlNode childNode in dependenciesNode.ChildNodes)
-            {
-                foreach (XmlNode innerDependencyProperties in childNode.ChildNodes)
-                {
-                    if (innerDependencyProperties.LocalName == "groupId")
-                    {
-                        if (innerDependencyProperties.InnerText.Contains("javax.el"))
-                        {                                 
+            //foreach (XmlNode childNode in dependenciesNode.ChildNodes)
+            //{
+            //    foreach (XmlNode innerDependencyProperties in childNode.ChildNodes)
+            //    {
+            //        if (innerDependencyProperties.LocalName == "groupId")
+            //        {
+            //            if (innerDependencyProperties.InnerText.Contains("javax.el"))
+            //            {                                 
                                                           
-                        }                                 
-                        if (innerDependencyProperties.InnerText.Contains("junit"))
-                        {                                  
+            //            }                                 
+            //            if (innerDependencyProperties.InnerText.Contains("junit"))
+            //            {                                  
                                                            
-                        }                                  
-                        if (innerDependencyProperties.InnerText.Contains("org.hsqldb"))
-                        {
+            //            }                                  
+            //            if (innerDependencyProperties.InnerText.Contains("org.hsqldb"))
+            //            {
                             
-                        }
-                    }
-                }   
-            }
-            XmlNode dependencyNode = doc.CreateNode(XmlNodeType.Element, "dependency", pomXmlNamepace);
+            //            }
+            //        }
+            //    }   
+            //}
+            //XmlNode dependencyNode = doc.CreateNode(XmlNodeType.Element, "dependency", pomXmlNamepace);
 
-            XmlNode groupId = doc.CreateNode(XmlNodeType.Element, "groupId", pomXmlNamepace);
-            groupId.InnerText = "javaxxxxx.el";
-            XmlNode artifactId = doc.CreateNode(XmlNodeType.Element, "artifactId", pomXmlNamepace);
-            artifactId.InnerText = "el-api";
+            //XmlNode groupId = doc.CreateNode(XmlNodeType.Element, "groupId", pomXmlNamepace);
+            //groupId.InnerText = "javaxxxxx.el";
+            //XmlNode artifactId = doc.CreateNode(XmlNodeType.Element, "artifactId", pomXmlNamepace);
+            //artifactId.InnerText = "el-api";
 
-            dependencyNode.AppendChild(groupId);
-            dependencyNode.AppendChild(artifactId);
+            //dependencyNode.AppendChild(groupId);
+            //dependencyNode.AppendChild(artifactId);
 
-            dependenciesNode.AppendChild(dependencyNode);
-            doc.Save("D:\\example.xml");
+            //dependenciesNode.AppendChild(dependencyNode);
+            //doc.Save("D:\\example.xml");
             return;
 
 

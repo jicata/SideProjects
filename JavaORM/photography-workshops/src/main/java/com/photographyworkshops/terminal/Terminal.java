@@ -53,18 +53,18 @@ public class Terminal implements CommandLineRunner {
     private WorkshopService workshopService;
 
     @Override
-    public void run(String... strings) throws Exception {
-        //Import
-        this.importLensFromJson();
-        this.importCamerasFromJson();
-        this.importPhotographersFromJson();
-        this.importAccesoriesFromXML();
-        this.importWorkshopsFromXML();
-        //Export
-        this.exportPhotographersToJSON();
-        this.exportPhotographersLandscapeToJSON();
-        this.exportPhotographersCamerasToXML();
-        this.exportWorkshopsToXML();
+        public void run(String... strings) throws Exception {
+            //Import
+            this.importLensFromJson();
+            this.importCamerasFromJson();
+            this.importPhotographersFromJson();
+            this.importAccesoriesFromXML();
+            this.importWorkshopsFromXML();
+            //Export
+            this.exportPhotographersToJSON();
+            this.exportPhotographersLandscapeToJSON();
+            this.exportPhotographersCamerasToXML();
+            this.exportWorkshopsToXML();
     }
 
     private void importLensFromJson() {
