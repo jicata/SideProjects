@@ -61,10 +61,10 @@ public class Terminal implements CommandLineRunner {
             this.importAccesoriesFromXML();
             this.importWorkshopsFromXML();
             //Export
-            this.exportPhotographersToJSON();
-            this.exportPhotographersLandscapeToJSON();
-            this.exportPhotographersCamerasToXML();
-            this.exportWorkshopsToXML();
+//            this.exportPhotographersToJSON();
+//            this.exportPhotographersLandscapeToJSON();
+//            this.exportPhotographersCamerasToXML();
+//            this.exportWorkshopsToXML();
     }
 
     private void importLensFromJson() {

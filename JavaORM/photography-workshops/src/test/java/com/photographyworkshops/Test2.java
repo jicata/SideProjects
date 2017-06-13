@@ -27,7 +27,7 @@ public class Test2 {
     @Test
     public void test() throws Exception {
         lenRepository.save(new Lens());
-        Assert.assertEquals(4,4);
+        Assert.assertEquals(true,lenRepository.findAll().iterator().hasNext());
     }
 
 }
