@@ -11,6 +11,8 @@ namespace TestApp
     using System.Xml;
     using System.Xml.Linq;
     using Microsoft.Build.Evaluation;
+    using Wintellect.PowerCollections;
+
 
     class Program
     {
@@ -22,7 +24,19 @@ namespace TestApp
 
         static void Main(string[] args)
         {
+            string csprojFilePath = @"C:\SideAndTestProjects\WebApplication2\WebApplication.csproj";
+            Project pr = new Project(csprojFilePath);
 
+        //    var wat = pr.AllEvaluatedProperties.FirstOrDefault(x => x.Name == "AssemblyName");
+
+            var ye = pr.FullPath;
+            string getProjectName = ExtractProjectNameFromCsProjfile(ye);
+            var kur = pr.SetProperty("AssemblyName", getProjectName);
+            pr.Save();
+
+
+            OrderedBag<string> baggy = new OrderedBag<string>();
+            return;
             ProcessStartInfo psi = new ProcessStartInfo(@"C:\Ruby24-x64\bin\ruby.exe", @"C:\SideAndTestProjects\Ruby\first.rb");
             psi.UseShellExecute = false;
             psi.RedirectStandardOutput = true;
@@ -158,6 +172,14 @@ namespace TestApp
                     zip.Save();
                 }
             }
+        }
+
+        private static string ExtractProjectNameFromCsProjfile(string ye)
+        {
+            var indexOfLastSlash = ye.LastIndexOf("\\");
+            var result = ye.Substring(indexOfLastSlash + 1);
+            result = result.Replace(".csproj", "");
+            return result;
         }
     }
 }
