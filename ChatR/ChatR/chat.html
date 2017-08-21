@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatR</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script src="Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+<input type="text" placeholder="Your message here..."/>
+<input type="button" value="Send message" class="btn btn-danger"/>
+    
+<script type="text/javascript">
+    var chat;
+    $.connection.hub.logging = true;
+    $(function() {
+        chat = $.connection.chat;
+
+        $.connection.hub.start({transport:'longPolling'});
+    });
+
+</script>
+</body>
+</html>
